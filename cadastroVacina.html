@@ -31,17 +31,17 @@
     <script>
         // Função para adicionar uma nova linha à tabela com base nos valores do formulário
         function adicionarVacina() {
-            var vacina = document.getElementById("vacina").value;
-            var dose = document.getElementById("dose").value;
-            var idade = document.getElementById("idade").value;
-            var observacoes = document.getElementById("observacoes").value;
+            let vacina = document.getElementById("vacina").value;
+            let dose = document.getElementById("dose").value;
+            let idade = document.getElementById("idade").value;
+            let observacoes = document.getElementById("observacoes").value;
 
-            var table = document.getElementById("vacinaTable");
-            var newRow = table.insertRow(-1);
-            var cells = [vacina, dose, idade, observacoes];
+            let table = document.getElementById("vacinaTable");
+            let newRow = table.insertRow(-1);
+            let cells = [vacina, dose, idade, observacoes];
 
-            for (var i = 0; i < cells.length; i++) {
-                var cell = newRow.insertCell(i);
+            for (let i = 0; i < cells.length; i++) {
+                let cell = newRow.insertCell(i);
                 cell.innerHTML = cells[i];
             }
 
