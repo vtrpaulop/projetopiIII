@@ -7,3 +7,5 @@ Registro de vacinas: Os administradores podem registrar as vacinas que tomaram, 
 Visualização da carteira de vacinação: Os usuários podem visualizar todas as vacinas que tomaram em um formato fácil de entender.
 Atualização de vacinas: Os administradores podem atualizar suas informações de vacinação conforme necessário.
 Notificações: O sistema pode enviar lembretes aos usuários sobre vacinas pendentes ou datas de reforço.
+
+Contribuições são bem-vindas! Sinta-se à vontade para enviar pull requests ou abrir issues relatando problemas ou sugestões.
