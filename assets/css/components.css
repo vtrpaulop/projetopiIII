@@ -1,0 +1,26 @@
+@import url("./default.css");
+.c-link:hover {
+  color: var(--primary-color);
+}
+.c-button__primary {
+  border: 2px solid var(--primary-color);
+  color: var(--white);
+  background-color: var(--primary-color);
+  padding: 12px 20px;
+  border-radius: 8px;
+}
+
+.c-button__primary:hover,
+.c-button__secondary:hover {
+  background-color: var(--primary-dark-color);
+  border-color: var(--primary-dark-color);
+  color: var(--white);
+}
+
+.c-button__secondary {
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  background: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+}

@@ -1,31 +1,70 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/index.css">
-    <title>Página Inicial - Calendário Vacinal</title>
-    
-</head>
-<body>
-    <div class="container">
-        <h1>Bem-vindo ao Calendário Vacinal</h1>
-        <!-- Informativos -->
-        <div class="informativos">
-            <h2>Informativos</h2>
-            <p>Aqui você encontrará informações importantes sobre o calendário vacinal.</p>
-            <p>Por favor, consulte regularmente para atualizações e novidades.</p>
-        </div>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <link rel="stylesheet" href="/assets/css/default.css" />
+    <link rel="stylesheet" href="/assets/css/components.css" />
+    <link rel="stylesheet" href="/assets/css/index.css" />
+    <title>Carteira Vacinação</title>
+  </head>
+  <body>
+    <nav class="c-nav">
+      <div class="c-screen__width c-nav__section">
+        <div>Logo</div>
+        <ul class="c-nav__menu">
+          <li><a class="c-nav__link c-link" href="/">Inicio</a></li>
+          <li>
+            <a class="c-nav__link c-link" href="/sobre-nos">Sobre nós</a>
+          </li>
+          <li><a class="c-nav__link c-link" href="/contato">Contato</a></li>
+        </ul>
+        <ul class="c-nav__button">
+          <li>
+            <a href="/cadastro">
+              <button class="c-button__primary">Fazer cadastro</button>
+            </a>
+          </li>
+          <li>
+            <a href="/entrar">
+              <button class="c-button__secondary">Entrar</button>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-        <div class="login-form">
-            <h2>Faça login para acessar</h2>
-            <form>
-                <input type="text" placeholder="Usuário" required><br>
-                <input type="password" placeholder="Senha" required><br>
-                <button class="submit" type="submit">Entrar</button>
-                <button class="reset" type="reset">Limpar</button>
-            </form>
+    <section class="c-header__section">
+      <div class="c-screen__width">
+        <div class="c-header">
+          <div class="c-header__text">
+            <h1>Tenha controle da sua carteirinha de vacinação</h1>
+            <p>
+              Com a carteirinhaPlus você não perde nenhuma data para a
+              vacinação, além de você sempre ter um lugar para lembra-los!
+            </p>
+            <div class="c-header__buttons">
+              <ul class="c-nav__button">
+                <li>
+                  <a href="/cadastro">
+                    <button class="c-button__primary">Fazer cadastro</button>
+                  </a>
+                </li>
+                <li>
+                  <a href="/entrar">
+                    <button class="c-button__secondary">Entrar</button>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <img src="/assets/images/header_image.svg" alt="" />
+          </div>
         </div>
-    </div>
-</body>
+      </div>
+    </section>
+  </body>
 </html>

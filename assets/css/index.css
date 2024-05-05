@@ -1,0 +1,58 @@
+@import url("./default.css");
+
+/* Menu */
+
+.c-screen__width {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0px 30px;
+}
+
+.c-nav {
+  background-color: var(--secondary-color);
+  padding: 15px 0px;
+}
+
+.c-nav__section {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.c-nav__button {
+  column-gap: 20px;
+}
+
+.c-nav__menu {
+  column-gap: 54px;
+}
+
+.c-nav__link {
+  color: var(--white);
+}
+
+/* Primeira Sessão */
+
+.c-header__section {
+  margin: 120px 0px;
+}
+
+.c-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+}
+
+.c-header__text {
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+  width: 50%;
+}
+
+.c-header__buttons {
+  margin-top: 12px;
+}
