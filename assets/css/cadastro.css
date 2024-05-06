@@ -1,0 +1,5 @@
+@import url("./login.css");
+
+.c-login__left {
+  background: url("../images/cadastro_image.png");
+}
