@@ -1,7 +1,5 @@
 @import url("./default.css");
-.c-link:hover {
-  color: var(--primary-color);
-}
+
 .c-button__primary {
   border: 2px solid var(--primary-color);
   color: var(--white);
@@ -12,6 +10,7 @@
 
 .c-button__primary:hover,
 .c-button__secondary:hover {
+  cursor: pointer;
   background-color: var(--primary-dark-color);
   border-color: var(--primary-dark-color);
   color: var(--white);
@@ -23,4 +22,47 @@
   background: none;
   padding: 12px 20px;
   border-radius: 8px;
+}
+
+.c-screen__width {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0px 30px;
+}
+
+.c-link {
+  color: var(--primary-color);
+}
+
+.c-link:hover {
+  color: var(--primary-dark-color);
+}
+
+.c-input {
+  border: 1px solid var(--gray);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.375rem;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  width: 320px;
+  max-width: 100%;
+}
+
+.c-input::placeholder {
+  color: rgb(184, 184, 184);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.c-input:focus {
+  border-color: var(--primary-color);
+}
+
+.c-input:focus-visible {
+  outline: 2px solid var(--primary-color);
+}
+
+.c-login__senha {
+  margin-top: 4px;
+  font-size: 0.7rem;
 }
