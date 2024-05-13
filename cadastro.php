@@ -13,16 +13,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if(empty($nome) || empty($email) || empty($senha) || empty($senha_confirmar)) {
         die("Por favor, preencha todos os campos.");
     }
-    // Hash da senha
-    $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
-    // Inserção dos dados no banco de dados
-    $sql = "INSERT INTO usuarios (nome, email, senha) VALUES ('$nome', '$email', '$senha_hash')";
+    // Verifica se a senha corresponde à confirmação de senha
+    if($senha !== $senha_confirmar) {
+        die("As senhas não correspondem.");
+    }
 
-    if ($conn->query($sql) === TRUE) {
-        echo "Cadastro realizado com sucesso!";
+    // Verifica se o e-mail já existe no banco de dados
+    $sql_check_email = "SELECT * FROM Usuarios WHERE email = '$email'";
+    $result_check_email = $conn->query($sql_check_email);
+
+    if ($result_check_email->num_rows > 0) {
+        // O e-mail já está em uso, exibe uma mensagem de erro
+        die("O e-mail já está em uso. Por favor, escolha outro.");
     } else {
-        echo "Erro ao cadastrar: " . $conn->error;
+        // O e-mail é único, pode proceder com a inserção no banco de dados
+
+        // Hash da senha
+        $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
+
+        // Inserção dos dados no banco de dados
+        $sql = "INSERT INTO usuarios (nome, email, senha) VALUES ('$nome', '$email', '$senha_hash')";
+
+        if ($conn->query($sql) === TRUE) {
+            echo "Cadastro realizado com sucesso!";
+        } else {
+            echo "Erro ao cadastrar: " . $conn->error;
+        }
     }
 
     $conn->close();
