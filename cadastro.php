@@ -108,8 +108,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             type="submit"
                             value="Cadastrar"
                             class="c-button__primary"
-                    />
+                    />                                    
+
+                    
                 </form>
+                <a href="index.html"> <input
+                            type="submit"
+                            value="Voltar"
+                            class="c-button__primary"
+                    />  </a>
+
             </div>
         </div>
     </div>
