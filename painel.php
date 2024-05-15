@@ -17,8 +17,8 @@ require_once 'verificar_login.php';
     <div>
         <h2>Opções:</h2>
         <ul>
-            <li><a href="listar_usuarios.php">Listar Usuários</a></li>
-            <li><a href="listar_vacinas.php">Listar Vacinas</a></li>
+            <li><a href="">Ver vacinas</a></li>
+            <li><a href="">Listar Vacinas</a></li>
         </ul>
     </div>
     <div>

@@ -17,7 +17,7 @@ require_once 'verificar_loginAdmin.php';
     <div>
         <h2>Opções:</h2>
         <ul>
-            <li><a href="">Lista Usuários</a></li>
+            <li><a href="listarUsuarios.php">Lista Usuários</a></li>
             <li><a href="">Listar Vacinas</a></li>
         </ul>
     </div>
