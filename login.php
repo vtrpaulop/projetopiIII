@@ -11,8 +11,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $senha = $_POST['senha'];
 
     // Consulta o banco de dados para verificar as credenciais
-    $sql = "SELECT * FROM usuarios WHERE email = '$email'";
-    $result = $conn->query($sql);
+    // Usando prepared statements para evitar SQL injection
+    $sql = $conn->prepare("SELECT * FROM usuarios WHERE email = ?");
+    $sql->bind_param("s", $email);
+    $sql->execute();
+    $result = $sql->get_result();
 
     if ($result->num_rows == 1) {
         // Usuário encontrado, verifica a senha
@@ -20,6 +23,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($senha, $row['senha'])) {
             // Login bem-sucedido, define a variável de sessão e redireciona para o painel de controle
             $_SESSION['logged_in'] = true;
+            $_SESSION['user_id'] = $row['id'];
+            $_SESSION['user_nome'] = $row['nome'];
+            $_SESSION['user_sobrenome'] = $row['sobreNome'];
             header("Location: painel.php");
             exit;
         } else {
@@ -58,6 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 id="email"
                                 placeholder="E-mail"
                                 class="c-input"
+                                required
                         />
                     </div>
                     <div class="c-login__input">
@@ -68,6 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 id="senha"
                                 placeholder="Senha"
                                 class="c-input"
+                                required
                         />
                         <a href="/reset-senha" class="c-link c-login__senha">Esqueci a senha</a>
                     </div>
