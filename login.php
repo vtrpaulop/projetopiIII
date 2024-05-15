@@ -73,6 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                     <input type="submit" value="Entrar" class="c-button__primary" />
                 </form>
+                <a href="./index.html"><input type="submit" value="Voltar" class="c-button__primary" /></a>
                 <?php if(isset($mensagem_erro)): ?>
                 <div class="c-login__erro">
                     <?php echo $mensagem_erro; ?>

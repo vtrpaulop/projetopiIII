@@ -5,12 +5,18 @@ require_once 'autentica.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Processamento dos dados do formulário
     $nome = $_POST['nome'];
+    $sobreNome = $_POST['sobreNome'];
+    $rg = $_POST['rg'];
+    $cpf = $_POST['cpf'];
+    $cartaoSus = $_POST['cartaoSus'];
+    $endereco = $_POST['endereco'];
+    $bairro = $_POST['bairro'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
     $senha_confirmar = $_POST['senha__confirmar'];
 
     // Verifica se os campos obrigatórios estão preenchidos
-    if(empty($nome) || empty($email) || empty($senha) || empty($senha_confirmar)) {
+    if(empty($nome) || empty($sobreNome) || empty($rg) || empty($cpf) || empty($cartaoSus) || empty($endereco) || empty($bairro) || empty($email) || empty($senha) || empty($senha_confirmar)) {
         die("Por favor, preencha todos os campos.");
     }
 
@@ -33,7 +39,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
         // Inserção dos dados no banco de dados
-        $sql = "INSERT INTO usuarios (nome, email, senha) VALUES ('$nome', '$email', '$senha_hash')";
+        $sql = "INSERT INTO Usuarios (nome, sobreNome, rg, cpf, cartaoSus, endereco, bairro, email, senha) 
+                VALUES ('$nome', '$sobreNome', '$rg', '$cpf', '$cartaoSus', '$endereco', '$bairro', '$email', '$senha_hash')";
 
         if ($conn->query($sql) === TRUE) {
             echo "Cadastro realizado com sucesso!";
@@ -75,6 +82,66 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         />
                     </div>
                     <div class="c-login__input">
+                        <label for="sobreNome">Sobrenome</label>
+                        <input
+                                type="text"
+                                name="sobreNome"
+                                id="sobreNome"
+                                placeholder="Sobrenome"
+                                class="c-input"
+                        />
+                    </div>
+                    <div class="c-login__input">
+                        <label for="rg">RG</label>
+                        <input
+                                type="text"
+                                name="rg"
+                                id="rg"
+                                placeholder="RG"
+                                class="c-input"
+                        />
+                    </div>
+                    <div class="c-login__input">
+                        <label for="cpf">CPF</label>
+                        <input
+                                type="text"
+                                name="cpf"
+                                id="cpf"
+                                placeholder="CPF"
+                                class="c-input"
+                        />
+                    </div>
+                    <div class="c-login__input">
+                        <label for="cartaoSus">Cartão SUS</label>
+                        <input
+                                type="text"
+                                name="cartaoSus"
+                                id="cartaoSus"
+                                placeholder="Cartão Sus"
+                                class="c-input"
+                        />
+                    </div>
+                    <div class="c-login__input">
+                        <label for="endereco">Endereço</label>
+                        <input
+                                type="text"
+                                name="endereco"
+                                id="endereco"
+                                placeholder="Endereço"
+                                class="c-input"
+                        />
+                    </div>
+                    <div class="c-login__input">
+                        <label for="bairro">Bairro</label>
+                        <input
+                                type="text"
+                                name="bairro"
+                                id="bairro"
+                                placeholder="Bairro"
+                                class="c-input"
+                        />
+                    </div>
+                    <div class="c-login__input">
                         <label for="email">Email</label>
                         <input
                                 type="text"
@@ -87,7 +154,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="c-login__input">
                         <label for="senha">Senha</label>
                         <input
-                                type="text"
+                                type="password"
                                 name="senha"
                                 id="senha"
                                 placeholder="Senha"
@@ -95,9 +162,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         />
                     </div>
                     <div class="c-login__input">
-                        <label for="senha">Confirmar a senha</label>
+                        <label for="senha__confirmar">Confirmar a senha</label>
                         <input
-                                type="text"
+                                type="password"
                                 name="senha__confirmar"
                                 id="senha__confirmar"
                                 placeholder="Confimar a senha"
@@ -109,15 +176,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             value="Cadastrar"
                             class="c-button__primary"
                     />                                    
-
-                    
                 </form>
-                <a href="index.html"> <input
-                            type="submit"
-                            value="Voltar"
-                            class="c-button__primary"
-                    />  </a>
-
+                <a href="./index.html"> 
+                    <input
+                        type="submit"
+                        value="Voltar"
+                        class="c-button__primary"
+                    />  
+                </a>
             </div>
         </div>
     </div>
