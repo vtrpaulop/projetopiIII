@@ -1,4 +1,14 @@
-# Colors
+# Configurando o Banco de Dados
+
+O projeto usa o banco de dados MySQL.
+
+No arquivo `config.php` é necessário colocar as configurações de acesso do seu banco de dados.
+
+Não se esqueça de criar um banco de dados para atrelar ao projeto.
+
+# Resources
+
+## Colors
 
 https://coolors.co/palette/0b3954-087e8b-bfd7ea-ff5a5f-c81d25
 
