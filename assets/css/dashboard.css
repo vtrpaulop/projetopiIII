@@ -1,0 +1,143 @@
+@import url("./default.css");
+
+body {
+  background: var(--gray);
+}
+
+.c-wrap {
+  display: flex;
+  align-content: flex-start;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.c-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 60px 30px;
+  align-items: flex-start;
+  align-content: stretch;
+  background: var(--secondary-color);
+  height: 100vh;
+  width: 270px;
+  box-shadow: inset -4px 1px 16px 0px rgb(0 0 0 / 19%);
+}
+
+.c-menu__user {
+  margin-bottom: 120px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.c-menu__user__image {
+  width: 120px;
+}
+
+.c-menu__user__name {
+  color: #ffffff;
+  margin-top: 12px;
+  font-weight: 600;
+}
+
+.c-menu__links {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  row-gap: 12px;
+}
+
+.c-menu__link {
+  font-size: 1rem;
+  padding: 8px 16px;
+  width: 100%;
+  text-align: left;
+  color: #ffffff;
+}
+
+.c-menu__link:hover {
+  background-color: var(--primary-color);
+  border-radius: 32px;
+}
+
+.c-section {
+  margin-left: 400px;
+  margin-top: 120px;
+  padding-right: 60px;
+}
+
+.c-section__title > h1 {
+  font-size: 1.6rem;
+}
+
+.c-blocos {
+  margin-top: 30px;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  column-gap: 60px;
+  row-gap: 60px;
+}
+
+.c-bloco {
+  width: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 300px;
+  border-radius: 32px;
+  padding: 30px;
+  background: var(--gray-light);
+  box-shadow: 1px 1px 17px 0px rgb(0 0 0 / 4%);
+}
+
+.c-bloco__title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.c-vacina {
+  display: flex;
+  width: 100%;
+  padding: 12px 18px;
+  border-radius: 32px;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 4px;
+}
+
+.c-vacina > p {
+  font-size: 0.8rem;
+}
+
+.c-vacina__first {
+  background-color: #ffffff;
+}
+
+.c-vacina__first > p {
+  font-size: 1rem;
+}
+
+.c-vacina__nome {
+  flex-grow: 3;
+}
+
+.c-vacina__status {
+  display: block;
+  width: 8px;
+  height: 8px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: #16c533;
+}
+
+.c-bloco__button {
+  margin-top: 20px;
+  color: var(--primary-color);
+  font-weight: 500;
+}

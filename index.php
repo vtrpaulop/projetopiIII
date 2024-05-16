@@ -20,7 +20,8 @@ $routes = [
     '/sobre-nos' => './index.html',
     '/contato' => './index.html',
     '/cadastro' => './cadastro.php',
-    'login' => './login.php'
+    '/login' => './login.php',
+    '/dashboard' => './dashboard.php'
 ];
 
 routeUris($uri, $routes);
