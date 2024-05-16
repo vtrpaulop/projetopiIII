@@ -2,7 +2,7 @@
 
 function base_path($path)
 {
-    return __DIR__ . '/$path';
+    return __DIR__ . "/{$path}";
 }
 
 function view(string $url, array $variables = [])

@@ -16,8 +16,13 @@ class Database
 
     public function createSchema()
     {
-        $this->createSchema();
-        $this->createUser();
+        try {
+            $this->createRoles();
+            $this->createUser();
+
+        } catch (\PDOException $ex) {
+
+        }
 
         static::$SCHEMA_CRIADO = true;
     }
@@ -54,7 +59,7 @@ class Database
         $statement = $this->pdo->prepare($sql);
         $statement->execute();
 
-        $sql_roles = "INSERT INTO funcoes VALUES('user'), ('admin'), ('supervisor'), ('colaborador')";
+        $sql_roles = "INSERT INTO funcoes (nome) VALUES('user'), ('admin'), ('supervisor'), ('colaborador')";
 
         $statement = $this->pdo->prepare($sql_roles);
         $statement->execute();
