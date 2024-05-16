@@ -10,4 +10,6 @@ A **Carteira de Vacinação Digital** é um projeto integrador desenvolvido como
 - **Atualização de vacinas**: Os administradores podem atualizar suas informações de vacinação conforme necessário.
 - **Notificações**: O sistema pode enviar lembretes aos usuários sobre vacinas pendentes ou datas de reforço.
 
-Contribuições são bem-vindas! Sinta-se à vontade para enviar *pull requests* ou abrir *issues* relatando problemas ou sugestões.
+Contribuições são bem-vindas! Sinta-se à vontade para enviar _pull requests_ ou abrir _issues_ relatando problemas ou sugestões.
+
+Para mais informações do projeto, leia o `references.md`.
