@@ -18,7 +18,10 @@ require_once 'verificar_loginAdmin.php';
         <h2>Opções:</h2>
         <ul>
             <li><a href="listarUsuarios.php">Lista Usuários</a></li>
-            <li><a href="">Listar Vacinas</a></li>
+            <li><a href="vacinasInfantil.php">Listar Vacinas Infatins</a></li>
+            <li><a href="vacinasAdolescente.php">Listar Vacinas Adolescente</a></li>
+            <li><a href="vacinasAdulto.php">Listar vacinas Adultos</a></li>
+            <li><a href="vacinasGestante.php">Listar Vacinas Gestantes</a></li>
         </ul>
     </div>
     <div>
