@@ -48,5 +48,6 @@ $resultado = $conn->query($sql);
         }
         ?>
     </table>
+    <a href="dashboard.php"><button>Voltar</button</a>
 </body>
 </html>
