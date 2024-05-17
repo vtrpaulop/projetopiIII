@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $rg = $_POST['rg'];
     $cpf = $_POST['cpf'];
     $dnascimento = $_POST['dnascimento'];
-    $cpf = $_POST['cpf'];
+    $telefone = $_POST['telefone'];
     $cartaoSus = $_POST['cartaoSus'];
     $endereco = $_POST['endereco'];
     $bairro = $_POST['bairro'];
