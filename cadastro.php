@@ -8,6 +8,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sobreNome = $_POST['sobreNome'];
     $rg = $_POST['rg'];
     $cpf = $_POST['cpf'];
+    $dnascimento = $_POST['dnascimento'];
+    $telefone = $_POST['telefone'];
     $cartaoSus = $_POST['cartaoSus'];
     $endereco = $_POST['endereco'];
     $bairro = $_POST['bairro'];
@@ -16,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $senha_confirmar = $_POST['senha__confirmar'];
 
     // Verifica se os campos obrigatórios estão preenchidos
-    if (empty($nome) || empty($sobreNome) || empty($rg) || empty($cpf) || empty($cartaoSus) || empty($endereco) || empty($bairro) || empty($email) || empty($senha) || empty($senha_confirmar)) {
+    if (empty($nome) || empty($sobreNome) || empty($rg) || empty($cpf) || empty($dnascimento) || empty($telefone) || empty($cartaoSus) || empty($endereco) || empty($bairro) || empty($email) || empty($senha) || empty($senha_confirmar)) {
         die("Por favor, preencha todos os campos.");
     }
 
@@ -39,8 +41,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
         // Inserção dos dados no banco de dados
-        $sql = "INSERT INTO usuarios (nome, sobreNome, rg, cpf, cartaoSus, endereco, bairro, email, senha, funcao_fk) 
-                VALUES ('$nome', '$sobreNome', '$rg', '$cpf', '$cartaoSus', '$endereco', '$bairro', '$email', '$senha_hash', 1)";
+        $sql = "INSERT INTO usuarios (nome, sobreNome, rg, cpf, dnascimento, telefone, cartaoSus, endereco, bairro, email, senha, funcao_fk) 
+                VALUES ('$nome', '$sobreNome', '$rg', '$cpf', '$dnascimento', '$telefone', '$cartaoSus', '$endereco', '$bairro', '$email', '$senha_hash', 1)";
 
         if ($conn->query($sql) === TRUE) {
             echo "Cadastro realizado com sucesso!";
@@ -89,6 +91,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="c-login__input">
                             <label for="cpf">CPF</label>
                             <input type="text" name="cpf" id="cpf" placeholder="CPF" class="c-input" />
+                        </div>
+                        <div class="c-login__input">
+                            <label for="dnascimento">Data Nascimento</label>
+                            <input type="date" name="dnascimento" id="dnascimento" placeholder="xx/xx/xxxx" class="c-input" />
+                        </div>
+                        <div class="c-login__input">
+                            <label for="telefone">Telefone</label>
+                            <input type="text" name="telefone" id="telefone" placeholder="(XX) X XXXX-XXXX" class="c-input" />
                         </div>
                         <div class="c-login__input">
                             <label for="cartaoSus">Cartão SUS</label>

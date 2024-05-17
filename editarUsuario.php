@@ -29,6 +29,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sobreNome = $_POST['sobrenome'];
     $rg = $_POST['rg'];
     $cpf = $_POST['cpf'];
+    $dnascimento = $_POST['dnascimento'];
+    $cpf = $_POST['cpf'];
     $cartaoSus = $_POST['cartaoSus'];
     $endereco = $_POST['endereco'];
     $bairro = $_POST['bairro'];
@@ -43,6 +45,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     sobreNome = '$sobreNome', 
                     rg = '$rg', 
                     cpf = '$cpf', 
+                    dnascimento = '$dnascimento',
+                    telefone = '$telefone',
                     cartaoSus = '$cartaoSus', 
                     endereco = '$endereco', 
                     bairro = '$bairro', 
@@ -55,7 +59,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     nome = '$nome', 
                     sobreNome = '$sobreNome', 
                     rg = '$rg', 
-                    cpf = '$cpf', 
+                    cpf = '$cpf',
+                    dnascimento = '$dnascimento',
+                    telefone = '$telefone', 
                     cartaoSus = '$cartaoSus', 
                     endereco = '$endereco', 
                     bairro = '$bairro', 
@@ -91,6 +97,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="text" name="rg" id="rg" value="<?php echo $usuario['rg']; ?>"><br>
         <label for="cpf">CPF:</label>
         <input type="text" name="cpf" id="cpf" value="<?php echo $usuario['cpf']; ?>"><br>
+        <label for="dnascimento">Data nascimento:</label>
+        <input type="date" name="dnascimento" id="dnascimento" value="<?php echo $usuario['dnascimento']; ?>"><br>
+        <label for="telefone">Telefone:</label>
+        <input type="text" name="telefone" id="telefone" value="<?php echo $usuario['telefone']; ?>"><br>
         <label for="cartaoSus">Cartão SUS:</label>
         <input type="text" name="cartaoSus" id="cartaoSus" value="<?php echo $usuario['cartaoSus']; ?>"><br>
         <label for="endereco">Endereço:</label>
@@ -103,5 +113,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="password" name="senha" id="senha" value=""><br>
         <input type="submit" value="Salvar">
     </form>
+        <a href="listarUsuarios.php"><button>Voltar</button</a>
 </body>
 </html>
