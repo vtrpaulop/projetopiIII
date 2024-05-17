@@ -7,13 +7,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     require_once 'autentica.php';
 
     // Verifica o login
-    $email = $_POST['email'];
+    $cpf = $_POST['cpf'];
     $senha = $_POST['senha'];
 
     // Consulta o banco de dados para verificar as credenciais
     // Usando prepared statements para evitar SQL injection
-    $sql = $conn->prepare("SELECT id, nome, sobreNome, senha FROM usuarios WHERE email = ?");
-    $sql->bind_param("s", $email);
+    $sql = $conn->prepare("SELECT id, nome, sobreNome, senha FROM usuarios WHERE cpf = ?");
+    $sql->bind_param("s", $cpf);
     $sql->execute();
     $result = $sql->get_result();
 
@@ -62,12 +62,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <h1 class="c-login__title">Entrar na conta</h1>
                     <form action="login.php" method="post" class="c-login__form">
                         <div class="c-login__input">
-                            <label for="email">Email</label>
-                            <input type="text" name="email" id="email" placeholder="E-mail" class="c-input" required />
+                            <label for="cpf">Cpf</label>
+                            <input type="text" name="cpf" id="cpf" placeholder="000.000.000-00" class="c-input" required />
                         </div>
                         <div class="c-login__input">
                             <label for="senha">Senha</label>
-                            <input type="password" name="senha" id="senha" placeholder="Senha" class="c-input"
+                            <input type="password" name="senha" id="senha" placeholder="********" class="c-input"
                                 required />
                             <a href="/reset-senha" class="c-link c-login__senha">Esqueci a senha</a>
                         </div>
