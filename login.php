@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['user_id'] = $row['id'];
             $_SESSION['user_nome'] = $row['nome'];
             $_SESSION['user_sobrenome'] = $row['sobreNome'];
-            header("Location: painel.php");
+            header("Location: dashboard");
             exit;
         } else {
             // Senha incorreta, define mensagem de erro
@@ -40,6 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,54 +49,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="/assets/css/login.css">
     <title>Login</title>
 </head>
+
 <body>
-<section class="c-login">
-    <div class="c-screen-width">
-        <div class="c-login__section">
-            <div class="c-login__left"></div>
-            <div class="c-login__right">
-                <h1 class="c-login__title">Entrar na conta</h1>
-                <form action="login.php" method="post" class="c-login__form">
-                    <div class="c-login__input">
-                        <label for="email">Email</label>
-                        <input
-                                type="text"
-                                name="email"
-                                id="email"
-                                placeholder="E-mail"
-                                class="c-input"
-                                required
-                        />
+    <section class="c-login">
+        <div class="c-screen-width">
+            <div class="c-login__section">
+                <div class="c-login__left"></div>
+                <div class="c-login__right">
+                    <h1 class="c-login__title">Entrar na conta</h1>
+                    <form action="login.php" method="post" class="c-login__form">
+                        <div class="c-login__input">
+                            <label for="email">Email</label>
+                            <input type="text" name="email" id="email" placeholder="E-mail" class="c-input" required />
+                        </div>
+                        <div class="c-login__input">
+                            <label for="senha">Senha</label>
+                            <input type="password" name="senha" id="senha" placeholder="Senha" class="c-input"
+                                required />
+                            <a href="/reset-senha" class="c-link c-login__senha">Esqueci a senha</a>
+                        </div>
+                        <input type="submit" value="Entrar" class="c-button__primary" />
+                    </form>
+                    <a href="./index.html"><input type="submit" value="Voltar" class="c-button__primary" /></a>
+                    <?php if (isset($mensagem_erro)): ?>
+                        <div class="c-login__erro">
+                            <?php echo $mensagem_erro; ?>
+                        </div>
+                    <?php endif; ?>
+                    <div class="c-login__cadastro">
+                        <p>
+                            Ainda não tem uma conta?
+                            <a href=".\cadastro.php" class="c-link">Cadastre-se</a>!
+                        </p>
                     </div>
-                    <div class="c-login__input">
-                        <label for="senha">Senha</label>
-                        <input
-                                type="password"
-                                name="senha"
-                                id="senha"
-                                placeholder="Senha"
-                                class="c-input"
-                                required
-                        />
-                        <a href="/reset-senha" class="c-link c-login__senha">Esqueci a senha</a>
-                    </div>
-                    <input type="submit" value="Entrar" class="c-button__primary" />
-                </form>
-                <a href="./index.html"><input type="submit" value="Voltar" class="c-button__primary" /></a>
-                <?php if(isset($mensagem_erro)): ?>
-                <div class="c-login__erro">
-                    <?php echo $mensagem_erro; ?>
-                </div>
-                <?php endif; ?>
-                <div class="c-login__cadastro">
-                    <p>
-                        Ainda não tem uma conta?
-                        <a href=".\cadastro.php" class="c-link">Cadastre-se</a>!
-                    </p>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 </body>
+
 </html>

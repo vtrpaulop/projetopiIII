@@ -1,15 +1,8 @@
 <?php
 
-$host = "localhost:3306";
-$usuario_bd = "root";
-$senha_bd = "";
-$banco = "projetopi3";
-
-
-$conn = new mysqli($host, $usuario_bd, $senha_bd, $banco);
-
+$config = require './config.php';
+$conn = new mysqli($config['host'], $config['usuario'], $config['senha'], $config['nome_db']);
 
 if ($conn->connect_error) {
     die("Erro de conexão: " . $conn->connect_error);
 }
-?>

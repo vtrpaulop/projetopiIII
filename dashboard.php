@@ -19,8 +19,11 @@
     <div class="c-menu__links">
       <a href="/"><button class="c-menu__link">Inicio</button></a>
       <a href="/carteirinha"><button class="c-menu__link">Carteirinha</button></a>
-      <a href="/usuarios"><button class="c-menu__link">Usuários</button></a>
-      <a href="/sair"><button class="c-menu__link">Sair</button></a>
+      <a href="/listarUsuarios.php"><button class="c-menu__link">Usuários</button></a>
+      <a href="/vacinasAdolescente.php"><button class="c-menu__link">Vacinas Adolescentes</button></a>
+      <a href="/vacinasInfantil.php"><button class="c-menu__link">Vacinas Infantil</button></a>
+
+      <a href="/logout.php"><button class="c-menu__link">Sair</button></a>
     </div>
   </nav>
 
