@@ -1,32 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 5.2.0
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Tempo de geração: 16-Maio-2024 às 20:15
--- Versão do servidor: 10.4.25-MariaDB
--- versão do PHP: 8.1.10
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Banco de dados: `projetopi3`
---
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `vacinas_adolescente`
---
-
 CREATE TABLE tipo_etario (
   `id` BIGINT AUTO_INCREMENT PRIMARY KEY,
   `tipo` varchar(100) NOT NULL UNIQUE
@@ -78,29 +49,3 @@ INSERT INTO `vacinas` (`nome`, `protecao_contra`, `composicao`, `numero_doses`, 
 ('Papilomavírus humano 6, 11, 16 e 18 (HPV4 - recombinante)', 'Papilomavírus Humano 6, 11, 16 e 18 (recombinante)', 'Antígeno recombinante da proteína L1 os vírus 6, 11, 16 e 18 do HPV', 'Dose única', '09 e 10 anos (meninas e meninos)', '-', '-', '-', '-', 1),
 ('Pneumocócica 23-valente (VPP 23 - polissacarídica)', 'Meningites bacterianas, Pneumonias, Sinusite e outros', 'Polissacarídeo capsular de 23 sorotipos de pneumococos', '2 doses', 'A partir de 5 anos para os povos indígenas. A 2ª dose deve ser feita 5 anos após a 1ª dose', '5 anos', '3 anos', 'Uma dose a depender da situação vacinal anterior com a PCV 10', '-', 1),
 ('Varicela (VZ - atenuada)', 'Varicela (Catapora)', 'Vírus vivo atenuado', 'Uma dose (Corresponde a 2ª dose da varicela)', '4 anos', '-', '30 dias', '-', '-', 1);
-
-
---
--- Índices para tabelas despejadas
---
-
---
--- Índices para tabela `vacinas_adolescente`
---
-ALTER TABLE `vacinas_adolescente`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT de tabelas despejadas
---
-
---
--- AUTO_INCREMENT de tabela `vacinas_adolescente`
---
-ALTER TABLE `vacinas_adolescente`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
