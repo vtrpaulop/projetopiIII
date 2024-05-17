@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Consulta o banco de dados para verificar as credenciais
     // Usando prepared statements para evitar SQL injection
-    $sql = $conn->prepare("SELECT * FROM usuarios WHERE email = ?");
+    $sql = $conn->prepare("SELECT id, nome, sobreNome, senha FROM usuarios WHERE email = ?");
     $sql->bind_param("s", $email);
     $sql->execute();
     $result = $sql->get_result();
@@ -21,12 +21,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Usuário encontrado, verifica a senha
         $row = $result->fetch_assoc();
         if (password_verify($senha, $row['senha'])) {
-            // Login bem-sucedido, define a variável de sessão e redireciona para o painel de controle
+            // Login bem-sucedido, define as variáveis de sessão e redireciona para o painel de controle
             $_SESSION['logged_in'] = true;
-            $_SESSION['user_id'] = $row['id'];
-            $_SESSION['user_nome'] = $row['nome'];
-            $_SESSION['user_sobrenome'] = $row['sobreNome'];
-            header("Location: dashboard");
+            $_SESSION['usuario_id'] = $row['id'];
+            $_SESSION['nome'] = $row['nome'];
+            $_SESSION['sobrenome'] = $row['sobreNome'];
+            header("Location: dashboard.php");
             exit;
         } else {
             // Senha incorreta, define mensagem de erro
@@ -36,8 +36,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Usuário não encontrado, define mensagem de erro
         $mensagem_erro = "Credenciais inválidas. Por favor, tente novamente.";
     }
+    // Fechar a conexão após o uso
+    $conn->close();
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
