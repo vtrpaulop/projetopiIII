@@ -16,52 +16,35 @@ class Database
 
     public function createSchema()
     {
-        try {
-            $this->createRoles();
-            $this->createUser();
+        /* Le o arquivo vacinas.sql como uma string
+         * Referencia: https://www.php.net/manual/en/function.file-get-contents.php
+         */
+        $sql_file = file_get_contents('./tabelas.sql');
 
+        /* Tira qualquer tabulação, caso houver 
+         * Referencia: https://www.php.net/manual/en/function.trim.php
+         */
+        $sqls_file = trim($sql_file, "\t");
+
+        /* Particiona a string em um array, usando o ; como delimitaçao
+         * Referencia: https://www.php.net/manual/en/function.explode.php
+         */
+        $sqls = explode(';', $sql_file);
+
+        /* Retira qualquer string vazia do array 
+         * https://www.php.net/manual/en/function.array-filter.php
+         */
+        $sqls = array_filter($sqls, fn($v) => !empty ($v));
+
+        /* Itera sobre o array e vai executando cada sql */
+        try {
+            foreach ($sqls as $sql) {
+                $this->pdo->query($sql);
+            }
         } catch (\PDOException $ex) {
 
         }
 
         static::$SCHEMA_CRIADO = true;
-    }
-
-    private function createUser()
-    {
-        $query = "CREATE TABLE usuarios (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        nome VARCHAR(255) NOT NULL,
-        sobreNome VARCHAR(255) NOT NULL,
-        rg VARCHAR(20) NOT NULL,
-        cpf VARCHAR(20) NOT NULL,
-        cartaoSus VARCHAR(20) NOT NULL,
-        endereco VARCHAR(255) NOT NULL,
-        bairro VARCHAR(255) NOT NULL,
-        email VARCHAR(255) UNIQUE NOT NULL,
-        senha VARCHAR(255) NOT NULL,
-        funcao_fk BIGINT NOT NULL,
-        FOREIGN KEY (funcao_fk) REFERENCES funcoes(id)
-        );";
-
-        $statement = $this->pdo->prepare($query);
-
-        $statement->execute();
-    }
-
-    private function createRoles()
-    {
-        $sql = "CREATE TABLE funcoes (
-        id BIGINT AUTO_INCREMENT PRIMARY KEY,
-        nome VARCHAR(255) NOT NULL UNIQUE
-        );";
-
-        $statement = $this->pdo->prepare($sql);
-        $statement->execute();
-
-        $sql_roles = "INSERT INTO funcoes (nome) VALUES('user'), ('admin'), ('supervisor'), ('colaborador')";
-
-        $statement = $this->pdo->prepare($sql_roles);
-        $statement->execute();
     }
 }

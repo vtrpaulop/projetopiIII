@@ -1,10 +1,16 @@
-# Configurando o Banco de Dados
+# Banco de dados
+
+## Configurando o Banco de Dados
 
 O projeto usa o banco de dados MySQL.
 
 No arquivo `config.php` é necessário colocar as configurações de acesso do seu banco de dados.
 
 Não se esqueça de criar um banco de dados para atrelar ao projeto.
+
+## Criação e edição de tabelas no banco de dados
+
+Para criar outras tabelas ou edita-las, acesse o arquivo `tabelas.sql`, não se esqueça de colocar ponto e vírgula ";" no final de cada instrução para o banco de dados.
 
 # Resources
 
