@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
         // Inserção dos dados no banco de dados
-        $sql = "INSERT INTO usuarios (nome, sobreNome, rg, cpf, dnascimento, telefone, cartaoSus, endereco, bairro, email, senha, funcao_fk) 
+        $sql = "INSERT INTO usuarios (nome, sobreNome, rg, cpf, data_nascimento, telefone, cartaoSus, endereco, bairro, email, senha, funcao_fk) 
                 VALUES ('$nome', '$sobreNome', '$rg', '$cpf', '$dnascimento', '$telefone', '$cartaoSus', '$endereco', '$bairro', '$email', '$senha_hash', 1)";
 
         if ($conn->query($sql) === TRUE) {
@@ -94,11 +94,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                         <div class="c-login__input">
                             <label for="dnascimento">Data Nascimento</label>
-                            <input type="date" name="dnascimento" id="dnascimento" placeholder="xx/xx/xxxx" class="c-input" />
+                            <input type="date" name="dnascimento" id="dnascimento" placeholder="xx/xx/xxxx"
+                                class="c-input" />
                         </div>
                         <div class="c-login__input">
                             <label for="telefone">Telefone</label>
-                            <input type="text" name="telefone" id="telefone" placeholder="(XX) X XXXX-XXXX" class="c-input" />
+                            <input type="text" name="telefone" id="telefone" placeholder="(XX) X XXXX-XXXX"
+                                class="c-input" />
                         </div>
                         <div class="c-login__input">
                             <label for="cartaoSus">Cartão SUS</label>
