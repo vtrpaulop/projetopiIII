@@ -4,7 +4,7 @@ namespace Core;
 
 class Session
 {
-    public function setUser(string $id, string $nome, string $funcao)
+    public static function setUser(string $id, string $nome, string $funcao)
     {
         $_SESSION['user'] = [
             'id' => $id,
@@ -13,12 +13,32 @@ class Session
         ];
     }
 
+    public static function getUser()
+    {
+        return $_SESSION['user'];
+    }
+
+    public static function setTemp(string $key, string|array $value)
+    {
+        $_SESSION['__temp'][$key] = $value;
+    }
+
+    public static function getTemp(string $key)
+    {
+        return $_SESSION['__temp'][$key];
+    }
+
+    public static function flushTemp()
+    {
+        unset($_SESSION['__temp']);
+    }
+
     public static function flush()
     {
         $_SESSION = [];
     }
 
-    public function destroy()
+    public static function destroy()
     {
         static::flush();
 
