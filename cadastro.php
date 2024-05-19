@@ -1,6 +1,5 @@
 <?php
 require_once 'autentica.php';
-@teste commit
 // Verifica se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Processamento dos dados do formulário
