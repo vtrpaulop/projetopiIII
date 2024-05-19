@@ -10,25 +10,30 @@ class Routes
     {
         foreach ($this->routes as $route) {
             if ($uri === $route['uri']) {
-                require base_path($route['controller']);
+                try {
+                    Middleware::resolve($route['middleware']);
+                    return require base_path($route['controller']);
+                } catch (\Exception $ex) {
+                    header("Location: /");
+                }
             }
         }
 
-        $this->abort();
+        static::abort();
     }
 
-    public function add($uri, $controller, $role = 'user')
+    public function add($uri, $controller, array $roles = null)
     {
-        $this->routes = [
+        $this->routes[] = [
             'uri' => $uri,
             'controller' => $controller,
-            'middleware' => $role
+            'middleware' => $roles
         ];
 
         return $this;
     }
 
-    public function abort($code = 404)
+    public static function abort($code = 404)
     {
         require base_path("{$code}.php");
     }

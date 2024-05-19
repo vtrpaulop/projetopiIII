@@ -4,18 +4,20 @@ namespace Core;
 
 class Session
 {
-    public static function setUser(string $id, string $nome, string $funcao)
+    public static function setUser(string $id, string $nome, string $sobrenome, string $funcao)
     {
         $_SESSION['user'] = [
+            'logged' => true,
             'id' => $id,
             'nome' => $nome,
+            'sobrenome' => $sobrenome,
             'funcao' => $funcao
         ];
     }
 
     public static function getUser()
     {
-        return $_SESSION['user'];
+        return $_SESSION['user'] ?? null;
     }
 
     public static function setTemp(string $key, string|array $value)
@@ -25,7 +27,7 @@ class Session
 
     public static function getTemp(string $key)
     {
-        return $_SESSION['__temp'][$key];
+        return $_SESSION['__temp'][$key] ?? null;
     }
 
     public static function flushTemp()

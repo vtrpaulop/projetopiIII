@@ -1,34 +1,7 @@
 <?php
-session_start();
-require_once 'autentica.php';
-
-// Verificar se o usuário está autenticado
-if (!isset($_SESSION['usuario_id'])) {
-    // Redirecionar para a página de login se o usuário não estiver autenticado
-    header("Location: login.php");
-    exit;
-}
-
-// Consulta SQL para obter o nome do usuário
-$sql = "SELECT nome, sobreNome FROM usuarios WHERE id = ?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $_SESSION['usuario_id']);
-$stmt->execute();
-$stmt->bind_result($nome, $sobrenome);
-$stmt->fetch();
-$stmt->close();
-
-// Verificar se o nome foi encontrado no banco de dados
-if (!$nome) {
-    // Redirecionar para a página de login se o nome não for encontrado
-    header("Location: login.php");
-    exit;
-}
-
-// Armazenar o nome completo na sessão
-$_SESSION['nome'] = $nome . ' ' . $sobrenome;
+$usuario = \Core\Session::getUser();
+$nome_completo = "{$usuario['nome']} {$usuario['sobrenome']}";
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -45,21 +18,21 @@ $_SESSION['nome'] = $nome . ' ' . $sobrenome;
   <nav class="c-menu">
     <div class="c-menu__user">
       <img class="c-menu__user__image" src="/assets/images/default__user.png" alt="">
-      <p class="c-menu__user__name"><?php echo $_SESSION['nome']; ?></p>
+      <p class="c-menu__user__name"><?php echo $nome_completo ?></p>
     </div>
     <div class="c-menu__links">
       <a href="/"><button class="c-menu__link">Início</button></a>
       <a href="/carteirinha"><button class="c-menu__link">Carteirinha</button></a>
-      <a href="/listarUsuarios.php"><button class="c-menu__link">Usuários</button></a>
-      <a href="/vacinasAdolescente.php"><button class="c-menu__link">Vacinas Adolescentes</button></a>
-      <a href="/vacinasInfantil.php"><button class="c-menu__link">Vacinas Infantil</button></a>
-      <a href="/logout.php"><button class="c-menu__link">Sair</button></a>
+      <a href="/listar-usuarios"><button class="c-menu__link">Usuários</button></a>
+      <a href="/vacinas-adolescente"><button class="c-menu__link">Vacinas Adolescentes</button></a>
+      <a href="/vacinas-infantil"><button class="c-menu__link">Vacinas Infantil</button></a>
+      <a href="/logout"><button class="c-menu__link">Sair</button></a>
     </div>
   </nav>
 
   <section class="c-section">
     <div class="c-section__title">
-      <h1>Seja bem-vindo, <?php echo $_SESSION['nome']; ?>!</h1>
+      <h1>Seja bem-vindo, <?php echo $nome_completo ?>!</h1>
     </div>
 
     <div class="c-blocos">
