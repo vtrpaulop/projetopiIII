@@ -76,9 +76,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 required />
                             <a href="/reset-senha" class="c-link c-login__senha">Esqueci a senha</a>
                         </div>
-                        <input type="submit" value="Entrar" class="c-button__primary" />
+                        <div class="c-buttons">
+                            <input type="submit" value="Entrar" class="c-button__primary" />
+                            <a href="/">
+                                <div class="c-button__secondary">Voltar</div>
+                            </a>
+                        </div>
                     </form>
-                    <a href="./index.html"><input type="submit" value="Voltar" class="c-button__primary" /></a>
                     <?php if (isset($mensagem_erro)): ?>
                         <div class="c-login__erro">
                             <?php echo $mensagem_erro; ?>
@@ -87,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="c-login__cadastro">
                         <p>
                             Ainda não tem uma conta?
-                            <a href=".\cadastro.php" class="c-link">Cadastre-se</a>!
+                            <a href="\cadastro" class="c-link">Cadastre-se</a>!
                         </p>
                     </div>
                 </div>
