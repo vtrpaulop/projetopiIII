@@ -6,13 +6,3 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
-
-.c-input {
-  width: 100%;
-}
-
-.c-login__input__group {
-  display: flex;
-  width: 100%;
-  column-gap: 12px;
-}

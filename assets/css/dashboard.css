@@ -79,8 +79,8 @@ body {
   display: flex;
   width: 100%;
   flex-wrap: wrap;
-  column-gap: 60px;
-  row-gap: 60px;
+  column-gap: 28px;
+  row-gap: 28px;
 }
 
 .c-bloco {
@@ -99,6 +99,16 @@ body {
   font-size: 1.2rem;
   font-weight: 700;
   margin-bottom: 20px;
+}
+
+.c-bloco__large {
+  width: 80%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 32px;
+  background: var(--gray-light);
+  box-shadow: 1px 1px 17px 0px rgb(0 0 0 / 4%);
 }
 
 .c-vacina {

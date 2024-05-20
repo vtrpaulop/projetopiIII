@@ -38,21 +38,6 @@ body {
   margin-bottom: 60px;
 }
 
-.c-login__form {
-  display: flex;
-  flex-direction: column;
-  row-gap: 24px;
-  align-items: flex-start;
-  align-content: flex-start;
-}
-
-.c-login__input {
-  display: flex;
-  flex-direction: column;
-  row-gap: 4px;
-  width: 100%;
-}
-
 .c-login__cadastro {
   margin-top: 44px;
 }

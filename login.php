@@ -64,13 +64,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="c-login__left"></div>
                 <div class="c-login__right">
                     <h1 class="c-login__title">Entrar na conta</h1>
-                    <form action="/login" method="post" class="c-login__form">
-                        <div class="c-login__input">
+                    <form action="/login" method="post" class="c-form">
+                        <div class="c-info__input">
                             <label for="cpf">Cpf</label>
                             <input type="text" name="cpf" id="cpf" placeholder="000.000.000-00" class="c-input"
                                 required />
                         </div>
-                        <div class="c-login__input">
+                        <div class="c-info__input">
                             <label for="senha">Senha</label>
                             <input type="password" name="senha" id="senha" placeholder="********" class="c-input"
                                 required />
