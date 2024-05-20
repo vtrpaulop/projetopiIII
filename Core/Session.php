@@ -20,6 +20,16 @@ class Session
         return $_SESSION['user'] ?? null;
     }
 
+    public static function setMiddleware(array $keys)
+    {
+        $_SESSION['middleware'] = $keys;
+    }
+
+    public static function getMiddleware()
+    {
+        return $_SESSION['middleware'];
+    }
+
     public static function setTemp(string $key, string|array $value)
     {
         $_SESSION['__temp'][$key] = $value;

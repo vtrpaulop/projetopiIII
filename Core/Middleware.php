@@ -25,4 +25,14 @@ class Middleware
             throw new \Exception("No matching Middleware found for the keys");
         }
     }
+
+    public static function authorized()
+    {
+        $user_funcao = Session::getUser()['funcao'];
+        $funcoes_autorizadas = Session::getMiddleware();
+        $user_index = array_search($user_funcao, $funcoes_autorizadas);
+        $funcao = $funcoes_autorizadas[$user_index] ?? null;
+
+        return isset($funcao);
+    }
 }
