@@ -18,10 +18,10 @@ class Middleware
             throw new \Exception("This user is not allowed to access this area.");
         }
 
-        $array_key = array_search($funcao_usuario, $keys) ?? null;
-        $value_exist = $array_key === 0 ? $keys[$array_key] : false;
+        $array_key = array_search($funcao_usuario, $keys);
+        $value = $keys[$array_key] ?? null;
 
-        if (!$value_exist) {
+        if (!$value) {
             throw new \Exception("No matching Middleware found for the keys");
         }
     }
