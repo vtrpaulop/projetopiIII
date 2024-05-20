@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8" />
@@ -129,10 +129,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <input type="password" name="senha__confirmar" id="senha__confirmar"
                                 placeholder="Confimar a senha" class="c-input" />
                         </div>
-                        <input type="submit" value="Cadastrar" class="c-button__primary" />
+                        <div class="c-buttons">
+                            <input type="submit" value="Cadastrar" class="c-button__primary" />
+                            <input type="button" value="Voltar" class="c-button__secondary" />
+                        </div>
                     </form>
-                    <a href="./index.html">
-                        <input type="submit" value="Voltar" class="c-button__primary" />
+                    <a href="/">
                     </a>
                 </div>
             </div>

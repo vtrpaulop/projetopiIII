@@ -2,4 +2,12 @@
 
 .c-login__left {
   background: url("../images/cadastro_image.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.c-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
