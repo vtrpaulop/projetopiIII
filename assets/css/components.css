@@ -44,6 +44,7 @@
   row-gap: 24px;
   align-items: flex-start;
   align-content: flex-start;
+  width: 100%;
 }
 
 .c-input__group {
@@ -67,6 +68,15 @@
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   width: 100%;
   max-width: 100%;
+}
+
+.c-input__select {
+  width: 33%;
+}
+
+.c-input__required {
+  color: var(--primary-color);
+  font-weight: 600;
 }
 
 .c-input::placeholder {

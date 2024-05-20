@@ -103,12 +103,18 @@ body {
 
 .c-bloco__large {
   width: 80%;
-  padding: 30px;
+  padding: 90px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 120px;
   border-radius: 32px;
   background: var(--gray-light);
   box-shadow: 1px 1px 17px 0px rgb(0 0 0 / 4%);
+}
+
+.c-bloco__large__title {
+  font-size: 2rem;
+  margin-bottom: 32px;
 }
 
 .c-vacina {
