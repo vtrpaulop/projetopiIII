@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
         // Inserção dos dados no banco de dados
-        $sql = "INSERT INTO usuarios (nome, sobreNome, rg, cpf, dnascimento, telefone, cartaoSus, endereco, bairro, email, senha, funcao_fk) 
+        $sql = "INSERT INTO usuarios (nome, sobreNome, rg, cpf, data_nascimento, telefone, cartaoSus, endereco, bairro, email, senha, funcao_fk) 
                 VALUES ('$nome', '$sobreNome', '$rg', '$cpf', '$dnascimento', '$telefone', '$cartaoSus', '$endereco', '$bairro', '$email', '$senha_hash', 1)";
 
         if ($conn->query($sql) === TRUE) {

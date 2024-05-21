@@ -11,7 +11,7 @@ CREATE TABLE usuarios (
   sobreNome VARCHAR(255) NOT NULL,
   rg VARCHAR(20) NOT NULL,
   cpf VARCHAR(20) UNIQUE NOT NULL,
-  dnascimento DATE NOT NULL,
+  data_nascimento DATE NOT NULL,
   telefone VARCHAR(255) NOT NULL,
   cartaoSus VARCHAR(20) NOT NULL,
   endereco VARCHAR(255) NOT NULL,
