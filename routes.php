@@ -11,3 +11,4 @@ $route->add('/listar-usuarios', './listarUsuarios.php', ['admin', 'supervisor', 
 $route->add('/vacinas-adolescente', './vacinasAdolescente.php', ['user', 'admin', 'supervisor', 'colaborador']);
 $route->add('/vacinas-infantil', './vacinasInfantil.php', ['user', 'admin', 'supervisor', 'colaborador']);
 $route->add('/vacinas-cadastro', './vacinas-cadastro.php', ['admin', 'supervisor']);
+$route->add('/vacinas', './vacinas.php', ['user', 'admin', 'supervisor', 'colaborador']);

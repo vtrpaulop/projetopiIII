@@ -1,3 +1,7 @@
+<?php
+use Core\Middleware;
+
+?>
 <nav class="c-menu">
     <div class="c-menu__user">
         <img class="c-menu__user__image" src="/assets/images/default__user.png" alt="">
@@ -8,10 +12,13 @@
     <div class="c-menu__links">
         <a href="/dashboard"><button class="c-menu__link">Início</button></a>
         <a href="/carteirinha"><button class="c-menu__link">Carteirinha</button></a>
-        <a href="/vacinas-cadastro"><button class="c-menu__link">Cadastrar vacina</button></a>
-        <a href="/listar-usuarios"><button class="c-menu__link">Usuários</button></a>
-        <a href="/vacinas-adolescente"><button class="c-menu__link">Vacinas Adolescentes</button></a>
-        <a href="/vacinas-infantil"><button class="c-menu__link">Vacinas Infantil</button></a>
+        <?php if (Middleware::authorized()): ?>
+            <a href="/vacinas-cadastro"><button class="c-menu__link">Cadastrar vacina</button></a>
+        <?php endif; ?>
+        <?php if (Middleware::authorized()): ?>
+            <a href="/listar-usuarios"><button class="c-menu__link">Usuários</button></a>
+        <?php endif; ?>
+        <a href="/vacinas"><button class="c-menu__link">Todas as vacinas</button></a>
         <a href="/logout"><button class="c-menu__link">Sair</button></a>
     </div>
 </nav>

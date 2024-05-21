@@ -76,6 +76,7 @@ body {
 
 .c-blocos {
   margin-top: 30px;
+  margin-bottom: 120px;
   display: flex;
   width: 100%;
   flex-wrap: wrap;
@@ -106,7 +107,6 @@ body {
   padding: 90px;
   display: flex;
   flex-direction: column;
-  margin-bottom: 120px;
   border-radius: 32px;
   background: var(--gray-light);
   box-shadow: 1px 1px 17px 0px rgb(0 0 0 / 4%);
