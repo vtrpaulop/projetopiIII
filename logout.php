@@ -1,5 +1,4 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '.\autentica.php';
 
 // Finaliza a sessão atual
 \Core\Session::flush();

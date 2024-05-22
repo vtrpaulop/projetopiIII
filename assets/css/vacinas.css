@@ -21,3 +21,8 @@ table {
   font-size: 0.8rem;
   padding: 12px 8px 12px 4px;
 }
+
+.c-vacinas__icon__edit {
+  font-size: 0.8rem;
+  color: #000000;
+}
