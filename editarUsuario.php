@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sobreNome = $_POST['sobrenome'];
     $rg = $_POST['rg'];
     $cpf = $_POST['cpf'];
-    $dnascimento = $_POST['dnascimento'];
+    $data_nascimento = $_POST['data_nascimento'];
     $telefone = $_POST['telefone'];
     $cartaoSus = $_POST['cartaoSus'];
     $endereco = $_POST['endereco'];
@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     sobreNome = '$sobreNome', 
                     rg = '$rg', 
                     cpf = '$cpf', 
-                    dnascimento = '$dnascimento',
+                    data_nascimento = '$data_nascimento',
                     telefone = '$telefone',
                     cartaoSus = '$cartaoSus', 
                     endereco = '$endereco', 
@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     sobreNome = '$sobreNome', 
                     rg = '$rg', 
                     cpf = '$cpf',
-                    dnascimento = '$dnascimento',
+                    data_nascimento = '$data_nascimento',
                     telefone = '$telefone', 
                     cartaoSus = '$cartaoSus', 
                     endereco = '$endereco', 
@@ -97,8 +97,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="text" name="rg" id="rg" value="<?php echo $usuario['rg']; ?>"><br>
         <label for="cpf">CPF:</label>
         <input type="text" name="cpf" id="cpf" value="<?php echo $usuario['cpf']; ?>"><br>
-        <label for="dnascimento">Data nascimento:</label>
-        <input type="date" name="dnascimento" id="dnascimento" value="<?php echo $usuario['dnascimento']; ?>"><br>
+        <label for="data_nascimento">Data nascimento:</label>
+        <input type="date" name="data_nascimento" id="data_nascimento" value="<?php echo $usuario['data_nascimento']; ?>"><br>
         <label for="telefone">Telefone:</label>
         <input type="text" name="telefone" id="telefone" value="<?php echo $usuario['telefone']; ?>"><br>
         <label for="cartaoSus">Cartão SUS:</label>

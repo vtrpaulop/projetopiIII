@@ -12,7 +12,7 @@ class Database
     function __construct(array $config)
     {
         $dsn = $config['database'] . ':' . 'host=' . $config['host'] . ';port=' . $config['porta'] . ';dbname=' . $config['nome_db'];
-        $this->pdo = new \PDO($dsn, $config['usuario'], $config['senha'], [\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC]);
+        $this->pdo = new \PDO($dsn, $config['usuario'], $config['senha'], [\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION]);
     }
 
     public function query(string $sql, array $params = null)

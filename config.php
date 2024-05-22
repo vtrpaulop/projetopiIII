@@ -18,5 +18,5 @@ return $config = [
     'porta' => '3306',
     'usuario' => 'root',
     'senha' => '',
-    'nome_db' => 'projetopi',
+    'nome_db' => 'projetopi32',
 ];
