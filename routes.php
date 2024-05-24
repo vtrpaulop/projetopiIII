@@ -13,7 +13,8 @@ $route->add('/logout', './logout.php', User::class);
 $route->add('/dashboard', './dashboard.php', User::class);
 
 // Dashboard
-$route->add('/usuarios-listar', './usuarios-listar.php', Administrador::class);
+$route->add('/usuarios', './usuarios.php', Colaborador::class);
+$route->add('/usuarios-editar', './usuarios-editar.php', Colaborador::class);
 $route->add('/vacinas-cadastro', './vacinas-cadastro.php', Supervisor::class);
 $route->add('/vacinas', './vacinas.php', User::class);
 $route->add('/vacinas-editar', './vacinas-editar.php', Supervisor::class);

@@ -16,7 +16,7 @@ use Core\Middleware;
             <a href="/vacinas-cadastro"><button class="c-menu__link">Cadastrar vacina</button></a>
         <?php endif; ?>
         <?php if (Middleware::authorized(\Core\Administrador::class)): ?>
-            <a href="/usuarios-listar"><button class="c-menu__link">Usuários</button></a>
+            <a href="/usuarios"><button class="c-menu__link">Usuários</button></a>
         <?php endif; ?>
         <a href="/vacinas"><button class="c-menu__link">Todas as vacinas</button></a>
         <a href="/logout"><button class="c-menu__link">Sair</button></a>
