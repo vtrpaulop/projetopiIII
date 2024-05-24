@@ -40,6 +40,6 @@ class Middleware
             throw new \Exception("No matching Middleware found for the key {$funcao_usuario}");
         }
 
-        return $funcao::resolve($middleware);
+        return $middleware::resolve($funcao);
     }
 }
