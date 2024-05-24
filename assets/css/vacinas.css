@@ -1,28 +1,3 @@
 .c-bloco__large__vacinas {
   width: 100%;
 }
-
-table {
-  border-collapse: collapse;
-}
-
-.c-vacinas__table__td {
-  border-top: 1px solid var(--gray);
-}
-
-.c-vacinas__table__th {
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-align: left;
-  padding: 0 8px 8px 4px;
-}
-
-.c-vacinas__table__td {
-  font-size: 0.8rem;
-  padding: 12px 8px 12px 4px;
-}
-
-.c-vacinas__icon__edit {
-  color: var(--primary-color);
-  font-size: 0.8rem;
-}

@@ -97,3 +97,28 @@
   margin-top: 4px;
   font-size: 0.7rem;
 }
+
+.c-table {
+  border-collapse: collapse;
+}
+
+.c-table__td {
+  border-top: 1px solid var(--gray);
+}
+
+.c-table__th {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: left;
+  padding: 0 8px 8px 4px;
+}
+
+.c-table__td {
+  font-size: 0.8rem;
+  padding: 12px 8px 12px 4px;
+}
+
+.c-table__icon__edit {
+  color: var(--primary-color);
+  font-size: 0.8rem;
+}
