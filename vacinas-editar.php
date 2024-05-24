@@ -13,17 +13,10 @@ if (!empty($_POST) && $_POST['button'] === 'Atualizar') {
     $tipo_etario_fk = $_POST['tipo_etario'];
     $chaves_excluidas = ['id', 'button', 'tipo_etario', 'intervalo_doses'];
     $valores = array_filter($_POST, fn($key) => array_search($key, $chaves_excluidas) === false, ARRAY_FILTER_USE_KEY);
-    array_push($valores, ['intervalo_entre_doses' => $intervalo_entre_doses]);
-    dd($valores);
-    /**
-     * TODO: Array não sendo concatenado como eu quero, está puxando um array dentro do array.
-     */
-    $valores = [
+    $valores = array_merge($valores, [
         'intervalo_entre_doses' => $intervalo_entre_doses,
         'tipo_etario_fk' => $tipo_etario_fk
-    ];
-
-    dd($valores);
+    ]);
 
     $valores_formatado = "";
 
@@ -38,10 +31,11 @@ if (!empty($_POST) && $_POST['button'] === 'Atualizar') {
     try {
         $db->query($sql, ['id' => $id]);
     } catch (\PDOException $ex) {
-        dd($ex);
+        dd($sql);
     }
 
     header("Location: /vacinas");
+
 } elseif (!empty($_POST) && $_POST['button'] === 'Excluir') {
     $sql = "DELETE FROM vacinas WHERE id = :id";
     $db->query($sql, ['id' => $_POST['id']]);
@@ -145,7 +139,7 @@ $vacina = $db->query("SELECT * FROM vacinas WHERE id = :id", ['id' => $_GET['id'
                         <label for="tipo_etario">Tipo etario<span class="c-input__required">*</span></label>
                         <select name="tipo_etario" id="tipo_etario" class="c-input c-input__select">
                             <option value="1" <?= $vacina['tipo_etario_fk'] === 1 ? 'selected' : '' ?>>Infantil</option>
-                            <option value="2" <?= $vacina['tipo_etario_fk'] === 1 ? 'selected' : '' ?>>Adolescente</option>
+                            <option value="2" <?= $vacina['tipo_etario_fk'] === 2 ? 'selected' : '' ?>>Adolescente</option>
                         </select>
                     </div>
 
