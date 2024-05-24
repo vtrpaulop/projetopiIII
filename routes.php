@@ -1,5 +1,6 @@
 <?php
 
+use Core\Administrador;
 use Core\Guest;
 use Core\User;
 use Core\Colaborador;
@@ -12,6 +13,7 @@ $route->add('/logout', './logout.php', User::class);
 $route->add('/dashboard', './dashboard.php', User::class);
 
 // Dashboard
-$route->add('/listar-usuarios', './listarUsuarios.php', Colaborador::class);
+$route->add('/usuarios-listar', './usuarios-listar.php', Administrador::class);
 $route->add('/vacinas-cadastro', './vacinas-cadastro.php', Supervisor::class);
 $route->add('/vacinas', './vacinas.php', User::class);
+$route->add('/vacinas-editar', './vacinas-editar.php', Supervisor::class);
