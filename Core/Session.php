@@ -20,13 +20,13 @@ class Session
         return $_SESSION['user'] ?? null;
     }
 
-    public static function setMiddleware(array|null $keys)
+    public static function setMiddleware(string|null $middleware)
     {
-        if (!isset($keys)) {
+        if (!isset($middleware)) {
             return;
         }
 
-        $_SESSION['middleware'] = $keys;
+        $_SESSION['middleware'] = $middleware;
     }
 
     public static function getMiddleware()

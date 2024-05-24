@@ -24,7 +24,7 @@ class Routes
         static::abort();
     }
 
-    public function add($uri, $controller, array $roles = null)
+    public function add($uri, $controller, $roles = null)
     {
         $this->routes[] = [
             'uri' => $uri,

@@ -15,6 +15,8 @@ if (!$db::$SCHEMA_CRIADO) {
     $db->createSchema();
 }
 
+\Core\Session::getUser() ?? \Core\Session::setUser('none', 'none', 'none', 'guest');
+
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 $route = new \Core\Routes();

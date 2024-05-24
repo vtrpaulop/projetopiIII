@@ -4,35 +4,42 @@ namespace Core;
 
 class Middleware
 {
-    public static function resolve($keys)
+    protected const MAP = [
+        'guest' => Guest::class,
+        'user' => User::class,
+        'colaborador' => Colaborador::class,
+        'supervisor' => Supervisor::class,
+        'admin' => Administrador::class
+    ];
+
+    public static function resolve($middleware)
     {
-        if (!isset($keys)) {
+        if (!isset($middleware)) {
             return;
         }
 
         $funcao_usuario = Session::getUser()['funcao'] ?? null;
+        $funcao = static::MAP[$funcao_usuario] ?? null;
 
-        if ($keys[0] === 'anon' && empty($funcao_usuario)) {
-            return;
-        } elseif ($keys[0] === 'anon' && !empty($funcao_usuario)) {
-            throw new \Exception("This user is not allowed to access this area.");
+        if (!isset($funcao)) {
+            throw new \Exception("No matching Middleware found for the key {$funcao_usuario}");
         }
 
-        $array_key = array_search($funcao_usuario, $keys);
-        $value = $keys[$array_key] ?? null;
-
-        if (!$value) {
-            throw new \Exception("No matching Middleware found for the keys");
+        if (!$middleware::resolve($funcao)) {
+            throw new \Exception("This user is not allowed to access this area");
         }
     }
 
-    public static function authorized()
+    public static function authorized($middleware)
     {
-        $user_funcao = Session::getUser()['funcao'];
-        $funcoes_autorizadas = Session::getMiddleware();
-        $user_index = array_search($user_funcao, $funcoes_autorizadas);
-        $funcao = $funcoes_autorizadas[$user_index] ?? null;
 
-        return isset($funcao);
+        $funcao_usuario = Session::getUser()['funcao'] ?? null;
+        $funcao = static::MAP[$funcao_usuario] ?? null;
+
+        if (!isset($funcao)) {
+            throw new \Exception("No matching Middleware found for the key {$funcao_usuario}");
+        }
+
+        return $funcao::resolve($middleware);
     }
 }

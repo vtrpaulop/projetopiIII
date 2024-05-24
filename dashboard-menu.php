@@ -12,10 +12,10 @@ use Core\Middleware;
     <div class="c-menu__links">
         <a href="/dashboard"><button class="c-menu__link">Início</button></a>
         <a href="/carteirinha"><button class="c-menu__link">Carteirinha</button></a>
-        <?php if (Middleware::authorized()): ?>
+        <?php if (!Middleware::authorized(\Core\Supervisor::class)): ?>
             <a href="/vacinas-cadastro"><button class="c-menu__link">Cadastrar vacina</button></a>
         <?php endif; ?>
-        <?php if (Middleware::authorized()): ?>
+        <?php if (!Middleware::authorized(\Core\Administrador::class)): ?>
             <a href="/listar-usuarios"><button class="c-menu__link">Usuários</button></a>
         <?php endif; ?>
         <a href="/vacinas"><button class="c-menu__link">Todas as vacinas</button></a>
