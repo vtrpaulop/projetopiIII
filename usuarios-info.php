@@ -35,7 +35,7 @@ $usuario = $db->query($sql, ['id' => $_GET['id']])->find();
             <div class="c-bloco__large">
                 <h1 class="c-bloco__large__title">Informações Usuário</h1>
 
-                <div class="c-info c-info__first">
+                <div class="c-info">
                     <h2 class="c-info__title">Nome completo</h2>
                     <p class="c-info__description"><?= "{$usuario['nome']} {$usuario['sobreNome']}" ?></p>
                 </div>
