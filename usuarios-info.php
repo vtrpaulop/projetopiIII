@@ -8,6 +8,11 @@ $db = new \Core\Database(require './config.php');
 $sql = "SELECT * FROM usuarios WHERE id = :id";
 $usuario = $db->query($sql, ['id' => $_GET['id']])->find();
 
+$sql_vacinas_tomadas = "SELECT * FROM (vacinas JOIN vacinas_tomadas ON vacinas.id = vacinas_tomadas.vacina_fk) WHERE usuario_fk = :id ORDER BY data_vacina DESC";
+$sql_vacinas_marcadas = "SELECT * FROM (vacinas JOIN vacinas_marcadas ON vacinas.id = vacinas_marcadas.vacina_fk) WHERE usuario_fk = :id ORDER BY data_vacina DESC";
+$vacinas_tomadas = $db->query($sql_vacinas_tomadas, ['id' => $usuario['id']])->findAll() ?? null;
+$vacinas_marcadas = $db->query($sql_vacinas_marcadas, ['id' => $usuario['id']])->findAll() ?? null;
+
 ?>
 
 <!DOCTYPE html>
@@ -82,6 +87,70 @@ $usuario = $db->query($sql, ['id' => $_GET['id']])->find();
                     <a href="/usuarios-editar?id=<?= $usuario['id'] ?>"><button class="c-button__secondary">Editar
                             Usuário</button></a>
                 </div>
+            </div>
+
+            <div class="c-bloco__large">
+                <h2 class="c-bloco__large__title" id="vacinas-marcada">Vacinas Pendentes</h2>
+                <?php if ($vacinas_marcadas): ?>
+                    <table class="c-table">
+                        <tr>
+                            <th class="c-table__th">Nome da Vacina</th>
+                            <th class="c-table__th">Proteção</th>
+                            <th class="c-table__th">Número de Doses</th>
+                            <th class="c-table__th">Idade Recomendada</th>
+                            <th class="c-table__th">Intervalo entre Doses</th>
+                            <th class="c-table__th">Esquema Básico</th>
+                            <th class="c-table__th">Reforço Recomendado Mínimo</th>
+                        </tr>
+
+                        <?php foreach ($vacinas_marcadas as $vacina): ?>
+                            <tr>
+                                <td class="c-table__td"><?= $vacina['nome'] ?></td>
+                                <td class="c-table__td"><?= $vacina['protecao_contra'] ?></td>
+                                <td class="c-table__td"><?= $vacina['numero_doses'] ?></td>
+                                <td class="c-table__td"><?= $vacina['idade_recomendada'] ?></td>
+                                <td class="c-table__td"><?= $vacina['intervalo_entre_doses'] ?></td>
+                                <td class="c-table__td"><?= $vacina['esquema_basico'] ?></td>
+                                <td class="c-table__td"><?= $vacina['reforco_recomendado_minimo'] ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </table>
+                <?php else: ?>
+                    <p>Nenhuma vacina marcada por enquanto.</p>
+                <?php endif; ?>
+            </div>
+
+            <div class="c-bloco__large">
+                <h2 class="c-bloco__large__title" id="vacinas-tomadas">Vacinas já tomadas</h2>
+
+                <?php if ($vacinas_tomadas): ?>
+                    <table>
+                        <tr>
+                            <th class="c-table__th">Nome da Vacina</th>
+                            <th class="c-table__th">Proteção</th>
+                            <th class="c-table__th">Número de Doses</th>
+                            <th class="c-table__th">Idade Recomendada</th>
+                            <th class="c-table__th">Intervalo entre Doses</th>
+                            <th class="c-table__th">Esquema Básico</th>
+                            <th class="c-table__th">Reforço Recomendado Mínimo</th>
+                        </tr>
+
+                        <?php foreach ($vacinas_tomadas as $vacina): ?>
+                            <tr>
+                                <td class="c-table__td"><?= $vacina['nome'] ?></td>
+                                <td class="c-table__td"><?= $vacina['protecao_contra'] ?></td>
+                                <td class="c-table__td"><?= $vacina['numero_doses'] ?></td>
+                                <td class="c-table__td"><?= $vacina['idade_recomendada'] ?></td>
+                                <td class="c-table__td"><?= $vacina['intervalo_entre_doses'] ?></td>
+                                <td class="c-table__td"><?= $vacina['esquema_basico'] ?></td>
+                                <td class="c-table__td"><?= $vacina['reforco_recomendado_minimo'] ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </table>
+                <?php else: ?>
+                    <p>Nenhuma vacina tomada até agora.</p>
+                <?php endif; ?>
+
             </div>
     </section>
 </body>
