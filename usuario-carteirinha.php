@@ -35,7 +35,7 @@ $vacinas_marcadas = $db->query($sql_vacinas_marcadas, ['id' => $usuario['id']])-
 
         <div class="c-blocos">
             <div class="c-bloco__large c-bloco__large__vacinas">
-                <h2 class="c-bloco__large__title" id="vacinas-marcada">Vacinas Pendentes</h2>
+                <h1 class="c-bloco__large__title" id="vacinas-marcada">Vacinas Pendentes</h1>
                 <?php if ($vacinas_marcadas): ?>
                     <table class="c-table">
                         <tr>
