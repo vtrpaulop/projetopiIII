@@ -22,3 +22,5 @@ $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $route = new \Core\Routes();
 require_once './routes.php';
 $route->route($uri);
+
+\Core\Session::flushTemp();
