@@ -77,7 +77,8 @@ $usuario = $db->query($sql, ['id' => $_GET['id']])->find();
 
                 <div class="c-info">
                     <h2 class="c-info__title">Senha</h2>
-                    <a href="/senha-editar" class="c-info__description c-password">Editar senha</a>
+                    <a href="/usuario-senha?id=<?= $usuario['id'] ?>" class="c-info__description c-password">Editar
+                        senha</a>
                 </div>
 
             </div>

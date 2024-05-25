@@ -14,6 +14,7 @@ $route->add('/login', './login.php', Guest::class);
 // Usuario
 $route->add('/dashboard', './dashboard.php', User::class);
 $route->add('/usuario', './usuario.php', User::class);
+$route->add('/usuario-senha', './usuario-senha.php', User::class);
 $route->add('/logout', './logout.php', User::class);
 
 // Usuarios
