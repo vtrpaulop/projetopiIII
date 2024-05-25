@@ -1,7 +1,5 @@
 <?php
-
 $db = new \Core\Database(require './config.php');
-
 if ($_GET['cpf'] ?? null) {
     $sql = "SELECT id, nome, sobreNome, cpf, data_nascimento, telefone, bairro FROM usuarios WHERE cpf = :cpf";
     $usuarios = $db->query($sql, ['cpf' => $_GET['cpf']])->findAll();
@@ -48,6 +46,9 @@ if ($_GET['cpf'] ?? null) {
                         <?php if (\Core\Middleware::authorized(\Core\Supervisor::class)): ?>
                             <th class="c-table__th"> </th>
                         <?php endif; ?>
+                        <?php if (\Core\Middleware::authorized(\Core\Colaborador::class)): ?>
+                            <th class="c-table__th"> </th>
+                        <?php endif; ?>
                         <th class="c-table__th">Nome</th>
                         <th class="c-table__th">Sobrenome</th>
                         <th class="c-table__th">CPF</th>
@@ -62,6 +63,13 @@ if ($_GET['cpf'] ?? null) {
                                 <td class="c-table__td">
                                     <a href="/usuarios-editar?id=<?= $usuario['id'] ?>">
                                         <i class="fa-solid fa-pen-to-square c-table__icon__edit"></i>
+                                    </a>
+                                </td>
+                            <?php endif; ?>
+                            <?php if (\Core\Middleware::authorized(\Core\Colaborador::class)): ?>
+                                <td class="c-table__td">
+                                    <a href="/usuarios-info?id=<?= $usuario['id'] ?>">
+                                        <i class="fa-solid fa-eye c-table__icon__edit"></i>
                                     </a>
                                 </td>
                             <?php endif; ?>

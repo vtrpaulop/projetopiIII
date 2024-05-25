@@ -24,6 +24,12 @@
   border-radius: 8px;
 }
 
+.c-buttons {
+  display: flex;
+  column-gap: 30px;
+  margin-top: 60px;
+}
+
 .c-screen__width {
   max-width: 1200px;
   margin: 0 auto;

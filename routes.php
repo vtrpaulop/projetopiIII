@@ -18,3 +18,4 @@ $route->add('/usuarios-editar', './usuarios-editar.php', Colaborador::class);
 $route->add('/vacinas-cadastro', './vacinas-cadastro.php', Supervisor::class);
 $route->add('/vacinas', './vacinas.php', User::class);
 $route->add('/vacinas-editar', './vacinas-editar.php', Supervisor::class);
+$route->add('/usuarios-info', '/usuarios-info.php', Colaborador::class);
