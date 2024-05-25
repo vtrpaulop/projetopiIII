@@ -19,6 +19,8 @@ use Core\Middleware;
             <a href="/usuarios"><button class="c-menu__link">Usuários</button></a>
         <?php endif; ?>
         <a href="/vacinas"><button class="c-menu__link">Todas as vacinas</button></a>
+        <a href="/usuario?id=<?= \Core\Session::getUser()['id'] ?>"><button class="c-menu__link">Perfil</button></a>
+
         <a href="/logout"><button class="c-menu__link">Sair</button></a>
     </div>
 </nav>
