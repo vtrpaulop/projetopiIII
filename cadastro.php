@@ -40,9 +40,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Hash da senha
         $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
+        $resultado_query = $conn->query("SELECT * FROM usuarios");
+
+        $funcao_fk = $resultado_query->num_rows === 0 ? 2 : 1;
+
         // Inserção dos dados no banco de dados
         $sql = "INSERT INTO usuarios (nome, sobreNome, rg, cpf, data_nascimento, telefone, cartaoSus, endereco, bairro, email, senha, funcao_fk) 
-                VALUES ('$nome', '$sobreNome', '$rg', '$cpf', '$dnascimento', '$telefone', '$cartaoSus', '$endereco', '$bairro', '$email', '$senha_hash', 1)";
+                VALUES ('$nome', '$sobreNome', '$rg', '$cpf', '$dnascimento', '$telefone', '$cartaoSus', '$endereco', '$bairro', '$email', '$senha_hash', {$funcao_fk})";
 
         if ($conn->query($sql) === TRUE) {
             echo "Cadastro realizado com sucesso!";
