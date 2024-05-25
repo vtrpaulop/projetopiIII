@@ -20,7 +20,8 @@ $route->add('/logout', './logout.php', User::class);
 // Usuarios
 $route->add('/usuarios', './usuarios.php', Colaborador::class);
 $route->add('/usuarios-editar', './usuarios-editar.php', Colaborador::class);
-$route->add('/usuarios-info', '/usuarios-info.php', Colaborador::class);
+$route->add('/usuarios-info', './usuarios-info.php', Colaborador::class);
+$route->add('/usuarios-atrelar-vacina', './usuarios-atrelar-vacina.php', Colaborador::class);
 
 // Vacinas
 $route->add('/vacinas', './vacinas.php', User::class);

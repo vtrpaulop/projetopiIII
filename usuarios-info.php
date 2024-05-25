@@ -76,8 +76,9 @@ $usuario = $db->query($sql, ['id' => $_GET['id']])->find();
                 </div>
 
                 <div class="c-buttons">
-                    <a href="/usuarios-vacinas?id=<?= $usuario['id'] ?>"><button class="c-button__primary">Atrelar
-                            Vacinas</button></a>
+                    <a href="/usuarios-atrelar-vacina?id=<?= $usuario['id'] ?>"><button
+                            class="c-button__primary">Atrelar
+                            Vacina</button></a>
                     <a href="/usuarios-editar?id=<?= $usuario['id'] ?>"><button class="c-button__secondary">Editar
                             Usuário</button></a>
                 </div>
