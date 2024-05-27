@@ -42,6 +42,7 @@ body {
   color: #ffffff;
   margin-top: 12px;
   font-weight: 600;
+  text-align: center;
 }
 
 .c-menu__links {
@@ -76,18 +77,19 @@ body {
 
 .c-blocos {
   margin-top: 30px;
+  margin-bottom: 120px;
   display: flex;
   width: 100%;
   flex-wrap: wrap;
-  column-gap: 60px;
-  row-gap: 60px;
+  column-gap: 28px;
+  row-gap: 28px;
 }
 
 .c-bloco {
   width: 380px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   min-height: 300px;
   border-radius: 32px;
   padding: 30px;
@@ -99,6 +101,21 @@ body {
   font-size: 1.2rem;
   font-weight: 700;
   margin-bottom: 20px;
+}
+
+.c-bloco__large {
+  width: 80%;
+  padding: 90px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 32px;
+  background: var(--gray-light);
+  box-shadow: 1px 1px 17px 0px rgb(0 0 0 / 4%);
+}
+
+.c-bloco__large__title {
+  font-size: 2rem;
+  margin-bottom: 60px;
 }
 
 .c-vacina {
@@ -119,12 +136,9 @@ body {
   background-color: #ffffff;
 }
 
-.c-vacina__first > p {
-  font-size: 1rem;
-}
-
 .c-vacina__nome {
   flex-grow: 3;
+  max-width: 65%;
 }
 
 .c-vacina__status {

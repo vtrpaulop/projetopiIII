@@ -7,11 +7,29 @@ class Database
 {
     public static $SCHEMA_CRIADO = false;
     public \PDO $pdo;
+    private \PDOStatement $statement;
 
     function __construct(array $config)
     {
         $dsn = $config['database'] . ':' . 'host=' . $config['host'] . ';port=' . $config['porta'] . ';dbname=' . $config['nome_db'];
-        $this->pdo = new \PDO($dsn, $config['usuario'], $config['senha']);
+        $this->pdo = new \PDO($dsn, $config['usuario'], $config['senha'], [\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC, \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION]);
+    }
+
+    public function query(string $sql, array $params = null)
+    {
+        $this->statement = $this->pdo->prepare($sql);
+        $this->statement->execute($params);
+        return $this;
+    }
+
+    public function find()
+    {
+        return $this->statement->fetch();
+    }
+
+    public function findAll()
+    {
+        return $this->statement->fetchAll();
     }
 
     public function createSchema()

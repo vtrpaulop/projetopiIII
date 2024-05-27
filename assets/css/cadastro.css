@@ -1,5 +1,8 @@
 @import url("./login.css");
+@import url("./components.css");
 
 .c-login__left {
   background: url("../images/cadastro_image.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }

@@ -6,6 +6,7 @@ body {
 
 .c-login {
   margin-top: 90px;
+  margin-bottom: 120px;
 }
 
 .c-login__section {
@@ -26,9 +27,10 @@ body {
 }
 
 .c-login__right {
-  padding: 90px 90px 90px 60px;
+  padding: 90px 60px 90px 60px;
   border-radius: 0px 30px 30px 0px;
   background: var(--gray-light);
+  width: 100%;
 }
 
 .c-login__title {
@@ -36,20 +38,13 @@ body {
   margin-bottom: 60px;
 }
 
-.c-login__form {
-  display: flex;
-  flex-direction: column;
-  row-gap: 24px;
-  align-items: flex-start;
-  align-content: flex-start;
-}
-
-.c-login__input {
-  display: flex;
-  flex-direction: column;
-  row-gap: 4px;
-}
-
 .c-login__cadastro {
   margin-top: 44px;
+}
+
+.c-buttons {
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }

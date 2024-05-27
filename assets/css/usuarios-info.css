@@ -1,0 +1,17 @@
+.c-info {
+  width: 100%;
+  padding: 24px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
+  place-items: start;
+  border-top: 1px solid var(--gray);
+}
+
+.c-info__title {
+  font-size: 1rem;
+}
+
+.c-password {
+  color: var(--primary-color);
+}

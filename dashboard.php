@@ -1,34 +1,16 @@
 <?php
-session_start();
-require_once 'autentica.php';
+$usuario = \Core\Session::getUser();
+$nome_completo = "{$usuario['nome']} {$usuario['sobrenome']}";
 
-// Verificar se o usuário está autenticado
-if (!isset($_SESSION['usuario_id'])) {
-    // Redirecionar para a página de login se o usuário não estiver autenticado
-    header("Location: login.php");
-    exit;
-}
+$db = new \Core\Database(require './config.php');
+$sql_vacinas_tomadas = "SELECT nome, data_vacina FROM (vacinas JOIN vacinas_tomadas ON vacinas.id = vacinas_tomadas.vacina_fk) WHERE usuario_fk = :id ORDER BY data_vacina DESC LIMIT 4";
+$sql_vacinas_marcadas = "SELECT nome, data_vacina FROM (vacinas JOIN vacinas_marcadas ON vacinas.id = vacinas_marcadas.vacina_fk) WHERE usuario_fk = :id ORDER BY data_vacina DESC LIMIT 4";
+$vacinas_tomadas = $db->query($sql_vacinas_tomadas, ['id' => $usuario['id']])->findAll() ?? null;
+$ultima_vacina_tomada = $vacinas_tomadas['0'] ?? null;
+$vacinas_marcadas = $db->query($sql_vacinas_marcadas, ['id' => $usuario['id']])->findAll() ?? null;
+$ultima_vacina_marcada = $vacinas_marcadas['0'] ?? null;
 
-// Consulta SQL para obter o nome do usuário
-$sql = "SELECT nome, sobreNome FROM usuarios WHERE id = ?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $_SESSION['usuario_id']);
-$stmt->execute();
-$stmt->bind_result($nome, $sobrenome);
-$stmt->fetch();
-$stmt->close();
-
-// Verificar se o nome foi encontrado no banco de dados
-if (!$nome) {
-    // Redirecionar para a página de login se o nome não for encontrado
-    header("Location: login.php");
-    exit;
-}
-
-// Armazenar o nome completo na sessão
-$_SESSION['nome'] = $nome . ' ' . $sobrenome;
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -42,76 +24,64 @@ $_SESSION['nome'] = $nome . ' ' . $sobrenome;
 </head>
 
 <body>
-  <nav class="c-menu">
-    <div class="c-menu__user">
-      <img class="c-menu__user__image" src="/assets/images/default__user.png" alt="">
-      <p class="c-menu__user__name"><?php echo $_SESSION['nome']; ?></p>
-    </div>
-    <div class="c-menu__links">
-      <a href="/"><button class="c-menu__link">Início</button></a>
-      <a href="/carteirinha"><button class="c-menu__link">Carteirinha</button></a>
-      <a href="/listarUsuarios.php"><button class="c-menu__link">Usuários</button></a>
-      <a href="/vacinasAdolescente.php"><button class="c-menu__link">Vacinas Adolescentes</button></a>
-      <a href="/vacinasInfantil.php"><button class="c-menu__link">Vacinas Infantil</button></a>
-      <a href="/logout.php"><button class="c-menu__link">Sair</button></a>
-    </div>
-  </nav>
+  <?= require './dashboard-menu.php' ?>
 
   <section class="c-section">
     <div class="c-section__title">
-      <h1>Seja bem-vindo, <?php echo $_SESSION['nome']; ?>!</h1>
+      <h1>Seja bem-vindo, <?php echo $nome_completo ?>!</h1>
     </div>
 
     <div class="c-blocos">
 
       <div class="c-bloco">
         <h2 class="c-bloco__title">Proximas vacinas</h2>
-        <div class="c-vacina c-vacina__first">
-          <span class="c-vacina__status"></span>
-          <p class="c-vacina__nome">Rubéula v4</p>
-          <p class="c-vacina__data">23/02/2026</p>
-        </div>
-        <div class="c-vacina">
-          <span class="c-vacina__status"></span>
-          <p class="c-vacina__nome">Rubéula v4</p>
-          <p class="c-vacina__data">23/02/2026</p>
-        </div>
-        <div class="c-vacina">
-          <span class="c-vacina__status"></span>
-          <p class="c-vacina__nome">Rubéula v4</p>
-          <p class="c-vacina__data">23/02/2026</p>
-        </div>
-        <div class="c-vacina">
-          <span class="c-vacina__status"></span>
-          <p class="c-vacina__nome">Rubéula v4</p>
-          <p class="c-vacina__data">23/02/2026</p>
-        </div>
-        <a href="/proximas-vacinas"><button class="c-bloco__button">Ver meu calendário completo</button></a>
+        <?php if ($vacinas_marcadas): ?>
+          <?php foreach ($vacinas_marcadas as $vacina): ?>
+            <?php if ($vacina['nome'] === $ultima_vacina_marcada['nome']): ?>
+              <div class="c-vacina c-vacina__first">
+                <span class="c-vacina__status"></span>
+                <p class="c-vacina__nome"><?= $vacina['nome'] ?></p>
+                <p class="c-vacina__data"><?= $vacina['data_vacina'] ?></p>
+              </div>
+              <?php continue; ?>
+            <?php endif; ?>
+            <div class="c-vacina">
+              <span class="c-vacina__status"></span>
+              <p class="c-vacina__nome"><?= $vacina['nome'] ?></p>
+              <p class="c-vacina__data"><?= $vacina['data_vacina'] ?></p>
+            </div>
+          <?php endforeach; ?>
+        <?php else: ?>
+          <p class="c-vacina__nome">Nenhuma vacina marcada.</p>
+        <?php endif; ?>
+        <a href="/carteirinha#vacinas-marcada"><button class="c-bloco__button">Ver meu calendário
+            completo</button></a>
       </div>
 
       <div class="c-bloco">
         <h2 class="c-bloco__title">Últimas vacinas tomadas</h2>
-        <div class="c-vacina c-vacina__first">
-          <span class="c-vacina__status"></span>
-          <p class="c-vacina__nome">Rubéula v4</p>
-          <p class="c-vacina__data">23/02/2026</p>
-        </div>
-        <div class="c-vacina">
-          <span class="c-vacina__status"></span>
-          <p class="c-vacina__nome">Rubéula v4</p>
-          <p class="c-vacina__data">23/02/2026</p>
-        </div>
-        <div class="c-vacina">
-          <span class="c-vacina__status"></span>
-          <p class="c-vacina__nome">Rubéula v4</p>
-          <p class="c-vacina__data">23/02/2026</p>
-        </div>
-        <div class="c-vacina">
-          <span class="c-vacina__status"></span>
-          <p class="c-vacina__nome">Rubéula v4</p>
-          <p class="c-vacina__data">23/02/2026</p>
-        </div>
-        <a href="/proximas-vacinas"><button class="c-bloco__button">Ver carteirinha completa</button></a>
+        <?php if ($vacinas_tomadas): ?>
+          <?php foreach ($vacinas_tomadas as $vacina): ?>
+            <?php if ($vacina['nome'] === $ultima_vacina_tomada['nome']): ?>
+              <div class="c-vacina c-vacina__first">
+                <span class="c-vacina__status"></span>
+                <p class="c-vacina__nome"><?= $vacina['nome'] ?></p>
+                <p class="c-vacina__data"><?= $vacina['data_vacina'] ?></p>
+              </div>
+              <?php continue; ?>
+            <?php endif; ?>
+
+            <div class="c-vacina">
+              <span class="c-vacina__status"></span>
+              <p class="c-vacina__nome"><?= $vacina['nome'] ?></p>
+              <p class="c-vacina__data"><?= $vacina['data_vacina'] ?></p>
+            </div>
+          <?php endforeach; ?>
+        <?php else: ?>
+          <p class="c-vacina__nome">Nenhuma vacina registrada por enquanto.</p>
+        <?php endif; ?>
+        <a href="/carteirinha#vacinas-tomadas"><button class="c-bloco__button">Ver carteirinha
+            completa</button></a>
       </div>
 
     </div>

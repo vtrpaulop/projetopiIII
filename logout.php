@@ -1,14 +1,8 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '.\autentica.php';
-session_start();
 
 // Finaliza a sessão atual
-session_destroy();
+\Core\Session::flush();
 
 // Redireciona para o arquivo index.html
-header('Location: index.html');
+header('Location: /');
 exit();
-?>
-
-
-

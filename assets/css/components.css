@@ -24,6 +24,12 @@
   border-radius: 8px;
 }
 
+.c-buttons {
+  display: flex;
+  column-gap: 30px;
+  margin-top: 60px;
+}
+
 .c-screen__width {
   max-width: 1200px;
   margin: 0 auto;
@@ -38,14 +44,45 @@
   color: var(--primary-dark-color);
 }
 
+.c-form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+  align-items: flex-start;
+  align-content: flex-start;
+  width: 100%;
+}
+
+.c-input__group {
+  display: flex;
+  width: 100%;
+  column-gap: 12px;
+}
+
+.c-info__input {
+  display: flex;
+  flex-direction: column;
+  row-gap: 4px;
+  width: 100%;
+}
+
 .c-input {
   border: 1px solid var(--gray);
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   border-radius: 0.375rem;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  width: 320px;
+  width: 100%;
   max-width: 100%;
+}
+
+.c-input__select {
+  width: 33%;
+}
+
+.c-input__required {
+  color: var(--primary-color);
+  font-weight: 600;
 }
 
 .c-input::placeholder {
@@ -65,4 +102,29 @@
 .c-login__senha {
   margin-top: 4px;
   font-size: 0.7rem;
+}
+
+.c-table {
+  border-collapse: collapse;
+}
+
+.c-table__td {
+  border-top: 1px solid var(--gray);
+}
+
+.c-table__th {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: left;
+  padding: 0 8px 8px 4px;
+}
+
+.c-table__td {
+  font-size: 0.8rem;
+  padding: 12px 8px 12px 4px;
+}
+
+.c-table__icon__edit {
+  color: var(--primary-color);
+  font-size: 0.8rem;
 }

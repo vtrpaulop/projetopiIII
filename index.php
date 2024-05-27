@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require_once './functions.php';
 
 spl_autoload_register(function ($class) {
@@ -13,15 +15,12 @@ if (!$db::$SCHEMA_CRIADO) {
     $db->createSchema();
 }
 
+\Core\Session::getUser() ?? \Core\Session::setUser('none', 'none', 'none', 'guest');
+
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
-$routes = [
-    '/' => './index.html',
-    '/sobre-nos' => './index.html',
-    '/contato' => './index.html',
-    '/cadastro' => './cadastro.php',
-    '/login' => './login.php',
-    '/dashboard' => './dashboard.php'
-];
+$route = new \Core\Routes();
+require_once './routes.php';
+$route->route($uri);
 
-routeUris($uri, $routes);
+\Core\Session::flushTemp();

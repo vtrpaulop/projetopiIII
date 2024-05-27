@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 // Verifica se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -12,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Consulta o banco de dados para verificar as credenciais
     // Usando prepared statements para evitar SQL injection
-    $sql = $conn->prepare("SELECT id, nome, sobreNome, senha FROM usuarios WHERE cpf = ?");
+    $sql = $conn->prepare("SELECT id, nome, sobreNome, senha, funcao_fk FROM usuarios WHERE cpf = ?");
     $sql->bind_param("s", $cpf);
     $sql->execute();
     $result = $sql->get_result();
@@ -22,11 +21,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = $result->fetch_assoc();
         if (password_verify($senha, $row['senha'])) {
             // Login bem-sucedido, define as variáveis de sessão e redireciona para o painel de controle
+            $sql_funcao = $conn->prepare("SELECT nome FROM funcoes WHERE id = ?");
+            $sql_funcao->bind_param("i", $row['funcao_fk']);
+            $sql_funcao->execute();
+            $user_funcao = $sql_funcao->get_result()->fetch_assoc();
+            \Core\Session::setUser($row['id'], $row['nome'], $row['sobreNome'], $user_funcao['nome']);
             $_SESSION['logged_in'] = true;
             $_SESSION['usuario_id'] = $row['id'];
             $_SESSION['nome'] = $row['nome'];
             $_SESSION['sobrenome'] = $row['sobreNome'];
-            header("Location: dashboard.php");
+            header("Location: /dashboard");
             exit;
         } else {
             // Senha incorreta, define mensagem de erro
@@ -60,20 +64,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="c-login__left"></div>
                 <div class="c-login__right">
                     <h1 class="c-login__title">Entrar na conta</h1>
-                    <form action="login.php" method="post" class="c-login__form">
-                        <div class="c-login__input">
+                    <form action="/login" method="post" class="c-form">
+                        <div class="c-info__input">
                             <label for="cpf">Cpf</label>
-                            <input type="text" name="cpf" id="cpf" placeholder="000.000.000-00" class="c-input" required />
+                            <input type="text" name="cpf" id="cpf" placeholder="000.000.000-00" class="c-input"
+                                required />
                         </div>
-                        <div class="c-login__input">
+                        <div class="c-info__input">
                             <label for="senha">Senha</label>
                             <input type="password" name="senha" id="senha" placeholder="********" class="c-input"
                                 required />
                             <a href="/reset-senha" class="c-link c-login__senha">Esqueci a senha</a>
                         </div>
-                        <input type="submit" value="Entrar" class="c-button__primary" />
+                        <div class="c-buttons">
+                            <input type="submit" value="Entrar" class="c-button__primary" />
+                            <a href="/">
+                                <div class="c-button__secondary">Voltar</div>
+                            </a>
+                        </div>
                     </form>
-                    <a href="./index.html"><input type="submit" value="Voltar" class="c-button__primary" /></a>
                     <?php if (isset($mensagem_erro)): ?>
                         <div class="c-login__erro">
                             <?php echo $mensagem_erro; ?>
@@ -82,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="c-login__cadastro">
                         <p>
                             Ainda não tem uma conta?
-                            <a href=".\cadastro.php" class="c-link">Cadastre-se</a>!
+                            <a href="\cadastro" class="c-link">Cadastre-se</a>!
                         </p>
                     </div>
                 </div>
