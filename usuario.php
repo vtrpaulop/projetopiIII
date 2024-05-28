@@ -1,5 +1,7 @@
 <?php
 
+use Core\Notification;
+
 if (!($_GET['id'] ?? null) && $_SERVER['REQUEST_METHOD'] === 'GET') {
     \Core\Routes::abort();
 }
@@ -23,12 +25,14 @@ $usuario = $db->query($sql, ['id' => $_GET['id']])->find();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <title>Dashboard - Suas Informações</title>
 </head>
 
 <body>
 
     <?= require './dashboard-menu.php' ?>
+    <?= require './notification.php' ?>
 
     <section class="c-section">
         <div class="c-blocos">
@@ -83,6 +87,7 @@ $usuario = $db->query($sql, ['id' => $_GET['id']])->find();
 
             </div>
     </section>
+    <script src="./assets/js/main.js"></script>
 </body>
 
 </html>

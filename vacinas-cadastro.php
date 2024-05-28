@@ -1,4 +1,8 @@
 <?php
+
+use Core\Notification;
+
+
 if ($_POST) {
   $db = new \Core\Database(require './config.php');
   $sql = "INSERT INTO vacinas (nome, protecao_contra, composicao, numero_doses, idade_recomendada, intervalo_entre_doses, esquema_basico, reforco_recomendado_minimo, tipo_etario_fk)
@@ -6,7 +10,13 @@ if ($_POST) {
   ";
 
   $db->query($sql, $_POST);
+
+
+  Notification::set('success', 'Vacina cadastrada com sucesso.');
+
+  redirect('/vacinas-cadastro');
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -19,12 +29,16 @@ if ($_POST) {
   <link rel="stylesheet" href="/assets/css/components.css" />
   <link rel="stylesheet" href="/assets/css/dashboard.css" />
   <link rel="stylesheet" href="/assets/css/cadastro-vacina.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Dashboard - Cadastrar Vacinas</title>
 </head>
 
 <body>
 
   <?= require './dashboard-menu.php' ?>
+  <?= require './notification.php' ?>
 
   <section class="c-section">
     <div class="c-section__title">
@@ -100,6 +114,8 @@ if ($_POST) {
           </div>
         </form>
   </section>
+  <script src="./assets/js/main.js"></script>
+  <script src="./assets/js/main.js"></script>
 </body>
 
 </html>

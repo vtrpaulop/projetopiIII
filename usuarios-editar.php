@@ -20,8 +20,7 @@ if (!empty($_POST) && $_POST['button'] === 'Atualizar') {
         unset($valores['senha']);
     } else {
         if ($_POST['senha'] != $_POST['$senha_confirmar']) {
-            header("Location: /usuarios-editar?id={$id}");
-            exit();
+            redirect("/usuarios-editar?id={$id}");
         }
 
         $senha_hash = password_hash($_POST['senha'], PASSWORD_DEFAULT);
@@ -40,6 +39,7 @@ if (!empty($_POST) && $_POST['button'] === 'Atualizar') {
 
     try {
         $db->query($sql, ['id' => $id]);
+        \Core\Notification::set('success', 'Usuário alterado com sucesso.');
     } catch (\PDOException $ex) {
         dd($ex);
     }
@@ -50,14 +50,15 @@ if (!empty($_POST) && $_POST['button'] === 'Atualizar') {
         \Core\Session::setUser($id, $_POST['nome'], $_POST['sobreNome'], $funcao['nome']);
     }
 
-    header("Location: /usuarios");
-    exit();
+    redirect('/usuarios');
 
 } elseif (!empty($_POST) && $_POST['button'] === 'Excluir') {
     $sql = "DELETE FROM usuarios WHERE id = :id";
     $db->query($sql, ['id' => $_POST['id']]);
-    header("Location: /usuarios");
-    exit();
+
+    \Core\Notification::set('success', 'Usuário deletado com sucesso.');
+
+    redirect('/usuarios');
 }
 
 $usuario = $db->query("SELECT * FROM usuarios WHERE id = :id", ['id' => $_GET['id']])->find();

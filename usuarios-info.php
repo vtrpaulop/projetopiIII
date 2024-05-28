@@ -34,6 +34,7 @@ $vacinas_marcadas = $db->query($sql_vacinas_marcadas, ['id' => $usuario['id']])-
 <body>
 
     <?= require './dashboard-menu.php' ?>
+    <?= require './notification.php' ?>
 
     <section class="c-section">
         <div class="c-blocos">
@@ -153,6 +154,7 @@ $vacinas_marcadas = $db->query($sql_vacinas_marcadas, ['id' => $usuario['id']])-
 
             </div>
     </section>
+    <script src="./assets/js/main.js"></script>
 </body>
 
 </html>

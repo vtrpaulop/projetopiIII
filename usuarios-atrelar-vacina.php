@@ -27,8 +27,9 @@ if (!empty($_POST)) {
             'vacina' => $id_vacina,
             'data_vacina' => $data_vacina
         ]);
-        header("Location: /usuarios-info?id={$id_usuario}");
-        exit();
+
+        \Core\Notification::set('success', 'Vacina atrelada com sucesso.');
+        redirect("/usuarios-info?id={$id_usuario}");
     } catch (\PDOException $ex) {
         dd($ex);
         \Core\Session::setTemp('vacina', 'Essa vacina já está atrelada ao usuário');

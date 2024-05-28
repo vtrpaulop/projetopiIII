@@ -28,6 +28,7 @@ if ($_GET['cpf'] ?? null) {
 <body>
 
     <?= require './dashboard-menu.php' ?>
+    <?= require './notification.php' ?>
 
     <section class="c-section">
         <div class="c-blocos">
@@ -85,6 +86,7 @@ if ($_GET['cpf'] ?? null) {
             </div>
         </div>
     </section>
+    <script src="./assets/js/main.js"></script>
 </body>
 
 </html>

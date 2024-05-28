@@ -1,6 +1,7 @@
 <?php
 
 use \core\Session;
+use Core\Notification;
 
 if (!($_GET['id'] ?? null) && $_SERVER['REQUEST_METHOD'] === 'GET') {
     \Core\Routes::abort();
@@ -40,12 +41,13 @@ if (!empty($_POST) && $_POST['button'] === 'Atualizar') {
 
     try {
         $db->query($sql, ['id' => $id, 'senha' => $senha_hash]);
+
+        Notification::set('success', 'Senha alterada com sucesso.');
     } catch (\PDOException $ex) {
-        dd($ex);
+        Notification::set('error', 'Houve um erro ao atualizar a senha, consulte um administrador');
     }
 
-    header("Location: /usuario?id={$id}");
-    exit();
+    redirect("/usuario?id={$id}");
 }
 
 ?>

@@ -1,5 +1,7 @@
 <?php
 
+use Core\Notification;
+
 if (!($_GET['id'] ?? null) && $_SERVER['REQUEST_METHOD'] === 'GET') {
     \Core\Routes::abort();
 }
@@ -30,16 +32,19 @@ if (!empty($_POST) && $_POST['button'] === 'Atualizar') {
 
     try {
         $db->query($sql, ['id' => $id]);
+        Notification::set('success', 'A vacina foi alterada com sucesso.');
     } catch (\PDOException $ex) {
+        Notification::set('error', 'Erro ao alterar a vacina, consulte o administrador.');
         dd($sql);
     }
 
-    header("Location: /vacinas");
+    redirect('/vacinas');
 
 } elseif (!empty($_POST) && $_POST['button'] === 'Excluir') {
     $sql = "DELETE FROM vacinas WHERE id = :id";
     $db->query($sql, ['id' => $_POST['id']]);
-    header("Location: /vacinas");
+    Notification::set('success', 'Vacina deletada com sucesso.');
+    redirect('/vacinas');
 }
 
 $vacina = $db->query("SELECT * FROM vacinas WHERE id = :id", ['id' => $_GET['id']])->find();
@@ -61,6 +66,8 @@ $vacina = $db->query("SELECT * FROM vacinas WHERE id = :id", ['id' => $_GET['id'
 <body>
 
     <?= require './dashboard-menu.php' ?>
+
+    <?= include './notification.php' ?>
 
     <section class="c-section">
         <div class="c-section__title">
@@ -149,6 +156,7 @@ $vacina = $db->query("SELECT * FROM vacinas WHERE id = :id", ['id' => $_GET['id'
                     </div>
                 </form>
     </section>
+    <script src="./assets/js/main.js"></script>
 </body>
 
 </html>

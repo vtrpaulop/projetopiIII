@@ -1,4 +1,6 @@
 <?php
+use Core\Notification;
+
 $db = new \Core\Database(require './config.php');
 
 $vacinas_infantil = $db->query("SELECT * FROM vacinas WHERE tipo_etario_fk = 1")->findAll();
@@ -25,6 +27,7 @@ $vacinas_adolescente = $db->query("SELECT * FROM vacinas WHERE tipo_etario_fk = 
 <body>
 
     <?= require './dashboard-menu.php' ?>
+    <?= require './notification.php' ?>
 
     <section class="c-section">
         <div class="c-section__title">
@@ -106,6 +109,7 @@ $vacinas_adolescente = $db->query("SELECT * FROM vacinas WHERE tipo_etario_fk = 
             </div>
         </div>
     </section>
+    <script src="./assets/js/main.js"></script>
 </body>
 
 </html>
