@@ -28,3 +28,9 @@ function routeUris(string $uri, array $routes)
         // todo: Fazer página 404 e retornar ela.
     }
 }
+
+function redirect(string $url)
+{
+    header("Location: $url");
+    exit();
+}
