@@ -132,7 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                         <div class="c-info__input">
                             <label for="email">Email</label>
-                            <input type="text" name="email" id="email" placeholder="E-mail" class="c-input" />
+                            <input type="email" name="email" id="email" placeholder="E-mail" class="c-input" />
                         </div>
                         <div class="c-info__input">
                             <label for="senha">Senha</label>
