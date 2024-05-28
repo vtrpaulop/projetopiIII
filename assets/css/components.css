@@ -133,13 +133,18 @@
 
 .c-notification {
   position: absolute;
-  top: 20;
   left: 50%;
   transform: translateX(-50%);
   max-width: 350px;
   padding: 12px;
+  opacity: 0;
   border-radius: 8px;
   box-shadow: -1px 2px 14px 0px rgb(0 0 0 / 24%);
+  animation-name: notification;
+  animation-duration: 0.4s;
+  animation-delay: 0.1s;
+  animation-timing-function: cubic-bezier(0.78, 0, 0.14, 1.09);
+  animation-fill-mode: forwards;
 }
 
 .c-error {
@@ -171,4 +176,19 @@
 .c-notification__message {
   font-weight: 400;
   font-size: 0.9rem;
+}
+
+/* Animação Notificação */
+
+@keyframes notification {
+  from {
+    display: block;
+    top: 0;
+    opacity: 0;
+  }
+
+  to {
+    top: 20px;
+    opacity: 1;
+  }
 }
