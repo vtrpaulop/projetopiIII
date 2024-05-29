@@ -6,6 +6,7 @@
   background-color: var(--primary-color);
   padding: 12px 20px;
   border-radius: 8px;
+  font-weight: 600;
 }
 
 .c-button__primary:hover,
@@ -22,6 +23,7 @@
   background: none;
   padding: 12px 20px;
   border-radius: 8px;
+  font-weight: 600;
 }
 
 .c-buttons {
@@ -43,6 +45,8 @@
 .c-link:hover {
   color: var(--primary-dark-color);
 }
+
+/* Formulário */
 
 .c-form {
   display: flex;

@@ -7,7 +7,7 @@ use Core\Colaborador;
 use Core\Supervisor;
 
 // Home
-$route->add('/', './index.html');
+$route->add('/', './main.php');
 $route->add('/sobre-nos', './sobre-nos.php');
 $route->add('/cadastro', './cadastro.php', Guest::class);
 $route->add('/login', './login.php', Guest::class);

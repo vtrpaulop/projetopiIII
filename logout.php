@@ -1,8 +1,7 @@
 <?php
 
 // Finaliza a sessão atual
-\Core\Session::flush();
+\Core\Session::destroy();
 
 // Redireciona para o arquivo index.html
-header('Location: /');
-exit();
+redirect('/');
