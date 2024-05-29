@@ -34,3 +34,9 @@ function redirect(string $url)
     header("Location: $url");
     exit();
 }
+
+function formatDate(string $date)
+{
+    $date = new DateTime(str_replace('/', '-', $date));
+    return $date->format('d/m/Y');
+}

@@ -61,7 +61,7 @@ $usuario = $db->query($sql, ['id' => $_GET['id']])->find();
 
                 <div class="c-info">
                     <h2 class="c-info__title">Data de nascimento</h2>
-                    <p class="c-info__description"><?= $usuario['data_nascimento'] ?></p>
+                    <p class="c-info__description"><?= formatDate($usuario['data_nascimento']) ?></p>
                 </div>
 
                 <div class="c-info">

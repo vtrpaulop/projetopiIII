@@ -81,8 +81,8 @@ use Core\Session;
             </ul>
           </div>
         </div>
-        <div>
-          <img src="/assets/images/header_image.svg" alt="" />
+        <div class="c-header__wrapper__image">
+          <img src="/assets/images/header_image.svg" alt="" class="c-header__image" />
         </div>
       </div>
     </div>

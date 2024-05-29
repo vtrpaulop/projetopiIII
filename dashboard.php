@@ -41,14 +41,14 @@ $ultima_vacina_marcada = $vacinas_marcadas['0'] ?? null;
               <div class="c-vacina c-vacina__first">
                 <span class="c-vacina__status"></span>
                 <p class="c-vacina__nome"><?= $vacina['nome'] ?></p>
-                <p class="c-vacina__data"><?= $vacina['data_vacina'] ?></p>
+                <p class="c-vacina__data"><?= formatDate($vacina['data_vacina']) ?></p>
               </div>
               <?php continue; ?>
             <?php endif; ?>
             <div class="c-vacina">
               <span class="c-vacina__status"></span>
               <p class="c-vacina__nome"><?= $vacina['nome'] ?></p>
-              <p class="c-vacina__data"><?= $vacina['data_vacina'] ?></p>
+              <p class="c-vacina__data"><?= formatDate($vacina['data_vacina']) ?></p>
             </div>
           <?php endforeach; ?>
         <?php else: ?>
@@ -66,7 +66,7 @@ $ultima_vacina_marcada = $vacinas_marcadas['0'] ?? null;
               <div class="c-vacina c-vacina__first">
                 <span class="c-vacina__status"></span>
                 <p class="c-vacina__nome"><?= $vacina['nome'] ?></p>
-                <p class="c-vacina__data"><?= $vacina['data_vacina'] ?></p>
+                <p class="c-vacina__data"><?= formatDate($vacina['data_vacina']) ?></p>
               </div>
               <?php continue; ?>
             <?php endif; ?>
@@ -74,7 +74,7 @@ $ultima_vacina_marcada = $vacinas_marcadas['0'] ?? null;
             <div class="c-vacina">
               <span class="c-vacina__status"></span>
               <p class="c-vacina__nome"><?= $vacina['nome'] ?></p>
-              <p class="c-vacina__data"><?= $vacina['data_vacina'] ?></p>
+              <p class="c-vacina__data"><?= formatDate($vacina['data_vacina']) ?></p>
             </div>
           <?php endforeach; ?>
         <?php else: ?>
