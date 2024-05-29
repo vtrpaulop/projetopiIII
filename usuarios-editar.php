@@ -1,6 +1,7 @@
 <?php
 
 use Core\Middleware;
+use Core\Validator;
 
 if (!($_GET['id'] ?? null) && $_SERVER['REQUEST_METHOD'] === 'GET') {
     \Core\Routes::abort();
@@ -13,8 +14,17 @@ if (!empty($_POST) && $_POST['button'] === 'Atualizar') {
     $id = $_POST['id'];
     $chaves_excluidas = ['id', 'button', 'funcao'];
     $valores = array_filter($_POST, fn($key) => array_search($key, $chaves_excluidas) === false, ARRAY_FILTER_USE_KEY);
+    
     unset($valores['senha-confirmar']);
     $valores = array_merge($valores, ['funcao_fk' => $_POST['funcao']]);
+
+   foreach($valores as $key => $value) {
+    if ($key === 'email') {
+        $valores[$key] = Validator::email($value);
+    } else {
+        $valores[$key] = Validator::string($value);
+    }
+   }
 
     if (empty($_POST['senha'])) {
         unset($valores['senha']);

@@ -1,13 +1,15 @@
 <?php
 
+use Core\Validator;
+
 // Verifica se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Inclui o arquivo de configuração do banco de dados
     require_once 'autentica.php';
 
     // Verifica o login
-    $cpf = $_POST['cpf'];
-    $senha = $_POST['senha'];
+    $cpf = Validator::string($_POST['cpf']);
+    $senha = Validator::string($_POST['senha']);
 
     // Consulta o banco de dados para verificar as credenciais
     // Usando prepared statements para evitar SQL injection

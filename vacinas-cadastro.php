@@ -9,7 +9,13 @@ if ($_POST) {
   VALUES (:nome, :protecao_contra, :composicao, :numero_doses, :idade_recomendada, :intervalo_doses, :esquema_basico, :reforco_recomendado, :tipo_etario)
   ";
 
-  $db->query($sql, $_POST);
+  $values = [];
+
+  foreach ($_POST as $key => $value) {
+    $values[$key] = \Core\Validator::string($value);
+  }
+
+  $db->query($sql, $values);
 
 
   Notification::set('success', 'Vacina cadastrada com sucesso.');

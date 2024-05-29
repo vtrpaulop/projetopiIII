@@ -1,21 +1,23 @@
 <?php
 
+use Core\Validator;
+
 // Verifica se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     require_once "./autentica.php";
     // Processamento dos dados do formulário
-    $nome = $_POST['nome'];
-    $sobreNome = $_POST['sobreNome'];
-    $rg = $_POST['rg'];
-    $cpf = $_POST['cpf'];
-    $dnascimento = $_POST['dnascimento'];
-    $telefone = $_POST['telefone'];
-    $cartaoSus = $_POST['cartaoSus'];
-    $endereco = $_POST['endereco'];
-    $bairro = $_POST['bairro'];
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
-    $senha_confirmar = $_POST['senha__confirmar'];
+    $nome = Validator::string($_POST['nome']);
+    $sobreNome = Validator::string($_POST['sobreNome']);
+    $rg = Validator::string($_POST['rg']);
+    $cpf = Validator::string($_POST['cpf']);
+    $dnascimento = Validator::string($_POST['dnascimento']);
+    $telefone = Validator::string($_POST['telefone']);
+    $cartaoSus = Validator::string($_POST['cartaoSus']);
+    $endereco = Validator::string($_POST['endereco']);
+    $bairro = Validator::string($_POST['bairro']);
+    $email = Validator::email($_POST['email']);
+    $senha = Validator::string($_POST['senha']);
+    $senha_confirmar = Validator::string($_POST['senha__confirmar']);
 
     // Verifica se os campos obrigatórios estão preenchidos
     if (empty($nome) || empty($sobreNome) || empty($rg) || empty($cpf) || empty($dnascimento) || empty($telefone) || empty($cartaoSus) || empty($endereco) || empty($bairro) || empty($email) || empty($senha) || empty($senha_confirmar)) {
