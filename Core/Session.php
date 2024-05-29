@@ -4,10 +4,10 @@ namespace Core;
 
 class Session
 {
-    public static function setUser(string $id, string $nome, string $sobrenome, string $funcao)
+    public static function setUser(string $id, string $nome, string $sobrenome, string $funcao, bool $logged = true)
     {
         $_SESSION['user'] = [
-            'logged' => true,
+            'logged' => $logged,
             'id' => $id,
             'nome' => $nome,
             'sobrenome' => $sobrenome,

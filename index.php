@@ -15,7 +15,7 @@ if (!$db::$SCHEMA_CRIADO) {
     $db->createSchema();
 }
 
-\Core\Session::getUser() ?? \Core\Session::setUser('none', 'none', 'none', 'guest');
+\Core\Session::getUser() ?? \Core\Session::setUser('none', 'none', 'none', 'guest', false);
 
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
