@@ -16,13 +16,15 @@ Para criar outras tabelas ou edita-las, acesse o arquivo `tabelas.sql`, não se 
 
 ## MVC
 
-Overview MVC - [https://www.treinaweb.com.br/blog/o-que-e-mvc](Treinaweb)
-Básico e História do MVC -[https://www.devmedia.com.br/introducao-ao-padrao-mvc/29308](Devmedia)
+Overview MVC - [Treinaweb](https://www.treinaweb.com.br/blog/o-que-e-mvc)
+
+Básico e História do MVC - [Devmedia](https://www.devmedia.com.br/introducao-ao-padrao-mvc/29308)
 
 ## Laracast
 
-Respositório do PHP for Beginners pelo Laracast - [https://github.com/laracasts/PHP-For-Beginners-Series/tree/main](Github)
-Playlist completo do curso PHP for Beginners pelo Laracast - [https://www.youtube.com/playlist?list=PL3VM-unCzF8ipG50KDjnzhugceoSG3RTC](Youtube]) (Ativar a legenda para Português)
+Respositório do PHP for Beginners pelo Laracast - [Github](https://github.com/laracasts/PHP-For-Beginners-Series/tree/main)
+
+Playlist completo do curso PHP for Beginners pelo Laracast - [Youtube](https://www.youtube.com/playlist?list=PL3VM-unCzF8ipG50KDjnzhugceoSG3RTC) (Ativar a legenda para Português)
 
 # Resources
 
