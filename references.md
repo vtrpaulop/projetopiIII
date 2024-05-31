@@ -12,6 +12,18 @@ Não se esqueça de criar um banco de dados para atrelar ao projeto.
 
 Para criar outras tabelas ou edita-las, acesse o arquivo `tabelas.sql`, não se esqueça de colocar ponto e vírgula ";" no final de cada instrução para o banco de dados.
 
+# Referências
+
+## MVC
+
+Overview MVC - (https://www.treinaweb.com.br/blog/o-que-e-mvc)[Treinaweb]
+Básico e História do MVC - (https://www.devmedia.com.br/introducao-ao-padrao-mvc/29308)[Devmedia]
+
+## Laracast
+
+Respositório do PHP for Beginners pelo Laracast - (https://github.com/laracasts/PHP-For-Beginners-Series/tree/main)[Github]
+Playlist completo do curso PHP for Beginners pelo Laracast - (https://www.youtube.com/playlist?list=PL3VM-unCzF8ipG50KDjnzhugceoSG3RTC)[Youtube] (Ativar a legenda para Português)
+
 # Resources
 
 ## Colors

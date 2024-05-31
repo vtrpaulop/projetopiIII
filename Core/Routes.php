@@ -11,10 +11,10 @@ class Routes
         foreach ($this->routes as $route) {
             if ($uri === $route['uri']) {
                 try {
-                    Middleware::resolve($route['middleware']);
+                    \Core\Middleware\Middleware::resolve($route['middleware']);
                     Session::setMiddleware($route['middleware']);
 
-                    return require base_path($route['controller']);
+                    return require $route['controller'];
                 } catch (\Exception $ex) {
                     header("Location: /");
                 }
@@ -38,7 +38,7 @@ class Routes
     public static function abort($code = 404)
     {
         http_response_code($code);
-        require base_path("{$code}.php");
+        view("/{$code}");
         exit();
     }
 }

@@ -37,7 +37,7 @@ class Database
         /* Le o arquivo vacinas.sql como uma string
          * Referencia: https://www.php.net/manual/en/function.file-get-contents.php
          */
-        $sql_file = file_get_contents('./tabelas.sql');
+        $sql_file = file_get_contents(base_path('/Migrations/tabelas.sql'));
 
         /* Tira qualquer tabulação, caso houver 
          * Referencia: https://www.php.net/manual/en/function.trim.php
