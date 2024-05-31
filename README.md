@@ -12,4 +12,4 @@ A **Carteira de Vacinação Digital** é um projeto integrador desenvolvido como
 
 Contribuições são bem-vindas! Sinta-se à vontade para enviar _pull requests_ ou abrir _issues_ relatando problemas ou sugestões.
 
-Para mais informações do projeto, leia o `references.md`.
+Para mais informações do projeto, leia o [References.md](./references.md).
