@@ -17,7 +17,7 @@
                 <div class="c-login__left"></div>
                 <div class="c-login__right">
                     <h1 class="c-login__title">Criar uma conta</h1>
-                    <form action="cadastro.php" method="post" class="c-form">
+                    <form action="/cadastro" method="post" class="c-form">
                         <div class="c-input__group">
                             <div class="c-info__input">
                                 <label for="nome">Nome</label>

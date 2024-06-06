@@ -4,7 +4,7 @@ use Core\Validator;
 
 // Verifica se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    require_once "./autentica.php";
+    require_once  controller("/autentica.php");
     // Processamento dos dados do formulário
     $nome = Validator::string($_POST['nome']);
     $sobreNome = Validator::string($_POST['sobreNome']);
