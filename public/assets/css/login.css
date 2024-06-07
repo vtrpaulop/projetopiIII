@@ -1,7 +1,7 @@
 @import url("./default.css");
 
 body {
-  background: var(--secondary-color);
+  background: var(--neutral-color);
 }
 
 .c-login {
@@ -13,29 +13,62 @@ body {
   margin: 0 auto;
   display: flex;
   max-width: 900px;
-  box-shadow: 0px 5px 80px rgb(0, 0, 0, 0.2);
 }
 
 .c-login__left {
-  background: url(/public/assets/images/login_image.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  border-radius: 30px 0px 0px 30px;
+  background: var(--primary-color);
+padding: 90px 60px 90px 60px;
+  border-radius: 64px;
   width: 100%;
   max-width: 900px;
+  position: relative;
+}
+
+.c-login__left::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  width: 200px;
+  background-color: white;
+  height: 100%;
+  z-index: -1;
+}
+
+.c-login__left > * {
+  text-align: center;
+  color: white;
+}
+
+.c-left__description {
+  margin: 36px 0 64px 0;
+}
+
+.c-left__cadastro {
+  font-weight: 700;
+}
+
+.c-left__link {
+  margin-top: 16px;
+  display: block;
+  margin-inline: auto;
+}
+
+.c-left__button {
+  border: 1px solid white;
 }
 
 .c-login__right {
   padding: 90px 60px 90px 60px;
-  border-radius: 0px 30px 30px 0px;
-  background: var(--gray-light);
+  border-radius: 0px 64px 64px 0px;
+  background: white;
   width: 100%;
 }
 
 .c-login__title {
   font-size: 2rem;
-  margin-bottom: 60px;
+  margin-bottom: 34px;
 }
 
 .c-login__cadastro {
@@ -43,7 +76,7 @@ body {
 }
 
 .c-buttons {
-  margin-top: 30px;
+  margin-top: 34px;
   width: 100%;
   display: flex;
   justify-content: space-between;

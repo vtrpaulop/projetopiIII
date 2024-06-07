@@ -63,6 +63,10 @@
   column-gap: 12px;
 }
 
+.c-input__label {
+  font-size: 13px;
+}
+
 .c-info__input {
   display: flex;
   flex-direction: column;
@@ -71,7 +75,7 @@
 }
 
 .c-input {
-  border: 1px solid var(--gray);
+  border: 1px solid #D1D5DB;
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   border-radius: 0.375rem;

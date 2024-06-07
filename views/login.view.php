@@ -18,26 +18,28 @@
     <section class="c-login">
         <div class="c-screen-width">
             <div class="c-login__section">
-                <div class="c-login__left"></div>
+                <div class="c-login__left">
+                    <h1 class="c-left__title display-2">Seja bem Vindo ao nosso Projeto Integrador!</h1>
+                    <p class="c-left__description">Faça o login e comece a usar o nosso sistema agora mesmo.</p>
+                    <p class="c-left__cadastro">Ainda não tem uma conta?</p>
+                    <a href="/cadastro" class="c-left__link"><button class="c-button__primary c-left__button">Cadastrar</button></a>
+                </div>
                 <div class="c-login__right">
-                    <h1 class="c-login__title">Entrar na conta</h1>
+                    <h2 class="c-login__title">Entrar na conta</h2>
                     <form action="/login" method="post" class="c-form">
                         <div class="c-info__input">
-                            <label for="cpf">Cpf</label>
+                            <label class="c-input__label" for="cpf">Cpf</label>
                             <input type="text" name="cpf" id="cpf" placeholder="000.000.000-00" class="c-input"
                                 required />
                         </div>
                         <div class="c-info__input">
-                            <label for="senha">Senha</label>
+                            <label class="c-input__label" for="senha">Senha</label>
                             <input type="password" name="senha" id="senha" placeholder="********" class="c-input"
                                 required />
                             <a href="/reset-senha" class="c-link c-login__senha">Esqueci a senha</a>
                         </div>
                         <div class="c-buttons">
                             <input type="submit" value="Entrar" class="c-button__primary" />
-                            <a href="/">
-                                <div class="c-button__secondary">Voltar</div>
-                            </a>
                         </div>
                     </form>
                     <?php if (isset($mensagem_erro)): ?>
@@ -45,13 +47,7 @@
                             <?php echo $mensagem_erro; ?>
                         </div>
                     <?php endif; ?>
-                    <div class="c-login__cadastro">
-                        <p>
-                            Ainda não tem uma conta?
-                            <a href="\cadastro" class="c-link">Cadastre-se</a>!
-                        </p>
-                    </div>
-                </div>
+                                    </div>
             </div>
         </div>
     </section>
