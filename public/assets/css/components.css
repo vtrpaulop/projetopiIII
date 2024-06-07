@@ -75,7 +75,7 @@
 }
 
 .c-input {
-  border: 1px solid #D1D5DB;
+  border: 1px solid #d1d5db;
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   border-radius: 0.375rem;
@@ -94,7 +94,7 @@
 }
 
 .c-input::placeholder {
-  color: rgb(184, 184, 184);
+  color: #d1d5db;
   font-size: 0.8rem;
   font-weight: 600;
 }
@@ -137,6 +137,67 @@
   font-size: 0.8rem;
 }
 
+/* Formulário Multi Passos */
+
+.c-form__progressbar {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 36px;
+}
+
+.c-form__progressbar::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 97%;
+  height: 6px;
+  background: var(--neutral-color);
+  z-index: 1;
+}
+
+.c-form__progress {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--neutral-color);
+  z-index: 2;
+}
+
+.c-progress-active {
+  background: var(--primary-color);
+  animation: animate 0.3s;
+}
+
+.c-form__box {
+  display: none;
+  width: 100%;
+  height: 300px;
+}
+
+.active {
+  display: block;
+  animation: animate 0.3s;
+  animation-timing-function: ease-out;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes animate {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
 /* Notificação */
 
 .c-notification {

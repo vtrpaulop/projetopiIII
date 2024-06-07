@@ -7,6 +7,7 @@ use Core\Middleware\Supervisor;
 
 // Home
 $route->add('/', controller('/index.php'));
+$route->add('/playground', controller('/playground.php'));
 $route->add('/sobre-nos', controller('/sobre-nos.php'));
 $route->add('/cadastro', controller('/cadastro.php'), Guest::class);
 $route->add('/login', controller('/login.php'), Guest::class);
