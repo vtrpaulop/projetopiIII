@@ -15,7 +15,7 @@
 
     <section class="c-section">
         <div class="c-section__title">
-            <h1>Seja bem-vindo, <?php echo $nome_completo ?>!</h1>
+            <h1>Seja bem-vindo, <span class="u-color__red"><?php echo $nome_completo ?></span>!</h1>
         </div>
 
         <div class="c-blocos">
@@ -70,7 +70,21 @@
                 <a href="/carteirinha#vacinas-tomadas"><button class="c-bloco__button">Ver carteirinha
                         completa</button></a>
             </div>
-
+            <a href="http://www.ccms.saude.gov.br/revolta/pdf/M7.pdf">
+                <div class="c-banner">
+                    <div class="c-banner__image">
+                        <img src="/public/assets/images/image_vacina.png" alt="">
+                    </div>
+                    <div class="c-banner__info">
+                        <h2 class="c-banner__title">Conheça a história da vacinação</h2>
+                        <p class="c-banner__description">Acompanhe uma linha do tempo aonde irá te mostrar os marcos
+                            mais
+                            importantes da nossa conquista
+                            por esse direito!
+                        </p>
+                    </div>
+                </div>
+            </a>
         </div>
     </section>
 

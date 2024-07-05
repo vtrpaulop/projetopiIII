@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
 
 :root {
   --primary-color: #da1e37;
   --primary-dark-color: #641220;
-  --secondary-color: #FFC8CF;
-  --black: #27272A;
-  --neutral-color: #EFF6FF;
+  --secondary-color: #ffc8cf;
+  --black: #27272a;
+  --neutral-color: #eff6ff;
   --white: #ffffff;
 }
 
@@ -23,8 +23,11 @@ body {
   font-weight: 500;
 }
 
-h1, h2, h3, h4 {
-  font-family: 'Libre Baskerville', serif;
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Libre Baskerville", serif;
   font-weight: 700;
 }
 
@@ -44,7 +47,7 @@ svg {
 }
 
 .display-2 {
-color: var(--primary-color);
+  color: var(--primary-color);
   font-size: clamp(32px, 38px, 38px);
   line-height: 110%;
 }
@@ -66,7 +69,8 @@ h2 {
   letter-spacing: -0.022em;
 }
 
-p, span {
+p,
+span {
   color: var(--black);
 }
 

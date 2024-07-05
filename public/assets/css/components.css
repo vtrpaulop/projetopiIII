@@ -46,6 +46,12 @@
   color: var(--primary-dark-color);
 }
 
+.u-color__red {
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--primary-color);
+}
+
 /* Formulário */
 
 .c-form {
