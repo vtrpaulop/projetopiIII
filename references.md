@@ -20,6 +20,8 @@ Overview MVC - [Treinaweb](https://www.treinaweb.com.br/blog/o-que-e-mvc)
 
 Básico e História do MVC - [Devmedia](https://www.devmedia.com.br/introducao-ao-padrao-mvc/29308)
 
+Implementando parte do MVC no projeto com Jonatas Baldan - [Youtube](https://www.youtube.com/watch?v=HiTurCuOouM)
+
 ## Laracast
 
 Respositório do PHP for Beginners pelo Laracast - [Github](https://github.com/laracasts/PHP-For-Beginners-Series/tree/main)
