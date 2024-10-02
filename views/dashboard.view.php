@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/public/assets/css/default.css">
-    <link rel="stylesheet" href="/public/assets/css/components.css">
-    <link rel="stylesheet" href="/public/assets/css/dashboard.css">
+    <link rel="stylesheet" href="<?= assets("/css/default.css") ?>">
+    <link rel="stylesheet" href="<?= assets("/css/components.css") ?>">
+    <link rel="stylesheet" href="<?= assets('/css/dashboard.css') ?>">
     <title>Dashboard</title>
 </head>
 
@@ -41,7 +41,7 @@
                 <?php else: ?>
                     <p class="c-vacina__nome">Nenhuma vacina marcada.</p>
                 <?php endif; ?>
-                <a href="/carteirinha#vacinas-marcada"><button class="c-bloco__button">Ver meu calendário
+                <a href="carteirinha#vacinas-marcada"><button class="c-bloco__button">Ver meu calendário
                         completo</button></a>
             </div>
 
@@ -67,13 +67,13 @@
                 <?php else: ?>
                     <p class="c-vacina__nome">Nenhuma vacina registrada por enquanto.</p>
                 <?php endif; ?>
-                <a href="/carteirinha#vacinas-tomadas"><button class="c-bloco__button">Ver carteirinha
+                <a href="carteirinha#vacinas-tomadas"><button class="c-bloco__button">Ver carteirinha
                         completa</button></a>
             </div>
             <a href="http://www.ccms.saude.gov.br/revolta/pdf/M7.pdf">
                 <div class="c-banner">
                     <div class="c-banner__image">
-                        <img src="/public/assets/images/image_vacina.png" alt="">
+                        <img src="<?= assets("/images/image_vacina.png") ?>" alt="">
                     </div>
                     <div class="c-banner__info">
                         <h2 class="c-banner__title">Conheça a história da vacinação</h2>

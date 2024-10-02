@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/public/assets/css/default.css" />
-    <link rel="stylesheet" href="/public/assets/css/components.css" />
-    <link rel="stylesheet" href="/public/assets/css/cadastro.css" />
+    <link rel="stylesheet" href="<?= assets("/css/default.css") ?>" />
+    <link rel="stylesheet" href="<?= assets("/css/components.css") ?>" />
+    <link rel="stylesheet" href="<?= assets("/css/cadastro.css") ?>" />
     <title>Cadastro</title>
 </head>
 
@@ -18,7 +18,7 @@
                     <h1 class="c-left__title display-2">Seja bem Vindo ao nosso Projeto Integrador!</h1>
                     <p class="c-left__description">Faça o cadastro e veja como funciona o nosso projeto.</p>
                     <p class="c-left__cadastro">Já tem uma conta?</p>
-                    <a href="/login" class="c-left__link"><button
+                    <a href="login" class="c-left__link"><button
                             class="c-button__primary c-left__button">Entrar</button></a>
 
                 </div>
@@ -29,7 +29,7 @@
                         <div class="c-form__progress"></div>
                         <div class="c-form__progress"></div>
                     </div>
-                    <form action="/cadastro" method="post" class="c-form">
+                    <form action="cadastro" method="post" class="c-form">
 
                         <div class="c-form__box active">
                             <h3 class="diplay-3">Informações Pessoais</h3>
@@ -118,7 +118,7 @@
             </div>
         </div>
     </section>
-    <script src="/public/assets/js/form-multi-step.js"></script>
+    <script src=" <?= assets("/js/form-multi-step.js") ?>"></script>
 </body>
 
 </html>

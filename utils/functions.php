@@ -5,6 +5,7 @@ function base_path($path)
     return __DIR__ . '/..' . "{$path}";
 }
 
+
 function view(string $uri, array $params = [])
 {
     extract($params);
@@ -34,7 +35,9 @@ function dd($var)
 
 function redirect(string $url)
 {
-    header("Location: $url");
+    require base_path('/config.php');
+    $subpath = $config['subdiretorio'];
+    header("Location: {$subpath}{$url}");
     exit();
 }
 
@@ -42,4 +45,13 @@ function formatDate(string $date)
 {
     $date = new DateTime(str_replace('/', '-', $date));
     return $date->format('d/m/Y');
+}
+
+function assets(string $path)
+{
+
+    require base_path('/config.php');
+    $subpath = $config['subdiretorio'];
+
+    return "{$subpath}/public/assets{$path}";
 }

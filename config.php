@@ -19,4 +19,5 @@ return $config = [
     'usuario' => 'root',
     'senha' => '',
     'nome_db' => 'projetopi',
+    'subdiretorio' => '/projetopiIII'
 ];

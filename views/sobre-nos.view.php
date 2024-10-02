@@ -5,10 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="/public/assets/css/sobre-nos.css">
+    <link rel="stylesheet" href="<?= assets("/css/sobre-nos.css") ?>">
     <title>Sobre Nós - Projeto PI 3</title>
-
-
 </head>
 
 <body>

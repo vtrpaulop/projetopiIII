@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/public/assets/css/default.css" />
-    <link rel="stylesheet" href="/public/assets/css/components.css" />
-    <link rel="stylesheet" href="/public/assets/css/dashboard.css" />
-    <link rel="stylesheet" href="/public/assets/css/cadastro-vacina.css">
+    <link rel="stylesheet" href="<?= assets("/css/default.css") ?>" />
+    <link rel="stylesheet" href="<?= assets("/css/components.css") ?>" />
+    <link rel="stylesheet" href="<?= assets("/css/dashboard.css") ?>" />
+    <link rel="stylesheet" href="<?= assets("/css/cadastro-vacina.css") ?>">
     <title>Dashboard - Atrelar Vacina</title>
 </head>
 
@@ -23,7 +23,7 @@
             <div class="c-bloco__large">
                 <h1 class="c-bloco__large__title">Atrelar Vacina</h1>
 
-                <form action="/usuarios-atrelar-vacina" class="c-form" method="POST">
+                <form action="usuarios-atrelar-vacina" class="c-form" method="POST">
                     <input type="hidden" name="id" value="<?= $id ?>">
 
                     <div class="c-input__group">

@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($conn->query($sql) === TRUE) {
             echo "Cadastro realizado com sucesso!";
             \Core\Notification::set('success', 'Cadastro feito com sucesso!');
-            header("Location: /login");
+            redirect("/login");
         } else {
             echo "Erro ao cadastrar: " . $conn->error;
         }

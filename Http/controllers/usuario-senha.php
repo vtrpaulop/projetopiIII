@@ -19,7 +19,7 @@ if (!empty($_POST) && $_POST['button'] === 'Atualizar') {
 
     if ($_POST['senha'] != $_POST['senha-confirmar']) {
         Session::setTemp('senha', 'A senha não está igual');
-        header("Location: /usuario-senha?id={$id}");
+        redirect("/usuario-senha?id={$id}");
         exit();
     }
 
@@ -29,13 +29,13 @@ if (!empty($_POST) && $_POST['button'] === 'Atualizar') {
 
     if (!password_verify($_POST['senha-atual'], $senha_atual)) {
         Session::setTemp('senha', 'A senha atual não corresponde com a sua senha');
-        header("Location: /usuario-senha?id={$id}");
+        redirect("/usuario-senha?id={$id}");
         exit();
     }
 
     if (password_verify($_POST['senha'], $senha_atual)) {
         Session::setTemp('senha', 'A senha é a mesma que a atual');
-        header("Location: /usuario-senha?id={$id}");
+        redirect("/usuario-senha?id={$id}");
         exit();
     }
 

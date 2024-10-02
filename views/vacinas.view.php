@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/public/assets/css/default.css" />
-    <link rel="stylesheet" href="/public/assets/css/components.css" />
-    <link rel="stylesheet" href="/public/assets/css/dashboard.css" />
-    <link rel="stylesheet" href="/public/assets/css/vacinas.css">
+    <link rel="stylesheet" href="<?= assets("/css/default.css") ?>" />
+    <link rel="stylesheet" href="<?= assets("/css/components.css") ?>" />
+    <link rel="stylesheet" href="<?= assets("/css/dashboard.css") ?>" />
+    <link rel="stylesheet" href="<?= assets("/css/vacinas.css") ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -44,7 +44,7 @@
                         <tr>
                             <?php if (\Core\Middleware\Middleware::authorized(\Core\Middleware\Supervisor::class)): ?>
                                 <td class="c-table__td">
-                                    <a href="/vacinas-editar?id=<?= $vacina['id'] ?>">
+                                    <a href="vacinas-editar?id=<?= $vacina['id'] ?>">
                                         <i class="fa-solid fa-pen-to-square c-table__icon__edit"></i>
                                     </a>
                                 </td>
@@ -81,7 +81,7 @@
                         <tr>
                             <?php if (\Core\Middleware\Middleware::authorized(\Core\Middleware\Supervisor::class)): ?>
                                 <td class="c-table__td">
-                                    <a href="/vacinas-editar?id=<?= $vacina['id'] ?>">
+                                    <a href="vacinas-editar?id=<?= $vacina['id'] ?>">
                                         <i class="fa-solid fa-pen-to-square c-table__icon__edit"></i>
                                     </a>
                                 </td>
@@ -99,7 +99,7 @@
             </div>
         </div>
     </section>
-    <script src="./public/assets/js/main.js"></script>
+    <script src="<?= assets("/js/main.js") ?>"></script>
 </body>
 
 </html>

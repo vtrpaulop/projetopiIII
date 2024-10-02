@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['usuario_id'] = $row['id'];
             $_SESSION['nome'] = $row['nome'];
             $_SESSION['sobrenome'] = $row['sobreNome'];
-            header("Location: /dashboard");
+            redirect("/dashboard");
             exit;
         } else {
             // Senha incorreta, define mensagem de erro

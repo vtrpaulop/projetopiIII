@@ -13,14 +13,12 @@ class Routes
                 try {
                     \Core\Middleware\Middleware::resolve($route['middleware']);
                     Session::setMiddleware($route['middleware']);
-
                     return require $route['controller'];
                 } catch (\Exception $ex) {
-                    header("Location: /");
+                    redirect("/");
                 }
             }
         }
-
         static::abort();
     }
 
