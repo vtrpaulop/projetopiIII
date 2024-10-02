@@ -51,14 +51,14 @@
                         <tr>
                             <?php if (\Core\Middleware\Middleware::authorized(\Core\Middleware\Supervisor::class)): ?>
                                 <td class="c-table__td">
-                                    <a href="/usuarios-editar?id=<?= $usuario['id'] ?>">
+                                    <a href="usuarios-editar?id=<?= $usuario['id'] ?>">
                                         <i class="fa-solid fa-pen-to-square c-table__icon__edit"></i>
                                     </a>
                                 </td>
                             <?php endif; ?>
                             <?php if (\Core\Middleware\Middleware::authorized(\Core\Middleware\Colaborador::class)): ?>
                                 <td class="c-table__td">
-                                    <a href="/usuarios-info?id=<?= $usuario['id'] ?>">
+                                    <a href="usuarios-info?id=<?= $usuario['id'] ?>">
                                         <i class="fa-solid fa-eye c-table__icon__edit"></i>
                                     </a>
                                 </td>
