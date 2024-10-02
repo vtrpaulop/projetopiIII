@@ -23,3 +23,7 @@ Contribuições são bem-vindas! Sinta-se à vontade para enviar _pull requests_
 Para mais informações do projeto, leia o [References.md](./references.md).
 
 \* - São funcionalidades que ainda não foram implementadas ou que foram implementadas parcialmente.
+
+# Instruções
+
+Confira [Instructions.md](./instructions.md) para mais instruções de como usar o projeto para desenvolvimento.
