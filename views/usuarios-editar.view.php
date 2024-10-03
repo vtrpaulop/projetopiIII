@@ -130,14 +130,16 @@ use Core\Middleware\Middleware;
 
                     <div class="c-buttons">
                         <input type="submit" name="button" value="Atualizar" class="c-button__primary" />
-                        <?php if (Middleware::authorized(\Core\Middleware\Supervisor::class)): ?>
-                            <input type="submit" name="button" value="Excluir" class="c-button__secondary" />
-                            
-                        <?php endif; ?>
-                        
-                    </div>
+                            <?php if (Middleware::authorized(\Core\Middleware\Supervisor::class)): ?>
+                        <input type="submit" name="button" value="Excluir" class="c-button__secondary" />
+            <?php endif; ?>
+    
+                     <a href="usuarios" class="c-button__secondary">Voltar</a> <!-- Remover o <button> e aplicar a classe no <a> -->
+                </div>
+
+                    
                 </form>
-                <a href="usuarios"><button class="c-button__secondary">Voltar</button></a>
+                
             </div>
         </div>
     </section>
