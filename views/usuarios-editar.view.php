@@ -132,9 +132,12 @@ use Core\Middleware\Middleware;
                         <input type="submit" name="button" value="Atualizar" class="c-button__primary" />
                         <?php if (Middleware::authorized(\Core\Middleware\Supervisor::class)): ?>
                             <input type="submit" name="button" value="Excluir" class="c-button__secondary" />
+                            
                         <?php endif; ?>
+                        
                     </div>
                 </form>
+                <a href="usuarios"><button class="c-button__secondary">Voltar</button></a>
             </div>
         </div>
     </section>

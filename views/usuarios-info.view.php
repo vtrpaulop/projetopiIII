@@ -70,6 +70,7 @@
                             Vacina</button></a>
                     <a href="usuarios-editar?id=<?= $usuario['id'] ?>"><button class="c-button__secondary">Editar
                             Usuário</button></a>
+                    <a href="usuarios"><button class="c-button__secondary">Voltar</button></a>
                 </div>
             </div>
 
